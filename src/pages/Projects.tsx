@@ -71,17 +71,14 @@ const projects = [
   },
   {
     id: 6,
-    title: 'Personal Finance Tracker',
-    description: 'Mobile-responsive web application for tracking personal finances with budget planning and expense categorization.',
-    longDescription: 'Developed a personal finance management application with features including expense tracking, budget planning, financial goal setting, and comprehensive reporting. Includes data visualization and trend analysis.',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop&crop=edges',
-    tags: ['React', 'Node.js', 'Chart.js', 'Express', 'JWT'],
-    category: 'Web Development',
-    demoUrl: '#',
-    codeUrl: '#',
-    featured: false,
-    date: '2023'
-  }
+    title: 'Srilankas Guide',
+    description: '🌴 A tourism and educational website about Sri Lanka built with Joomla made 2022, featuring travel guides, historical insights, religious diversity, and more. Hosted via Netlify.',
+    image: '/sl.guide.jpg',
+    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    demoUrl: 'https://slguide.netlify.app/',
+    codeUrl: 'https://github.com/codedbydumi/Srilankas_Guide',
+    featured: true
+  },
 ];
 
 const categories = ['All', 'Data Science', 'Web Development'];
@@ -293,29 +290,41 @@ export default function Projects(): JSX.Element {
                         whileTap={{ scale: 0.95 }}
                         className="flex-1"
                       >
-                        <Button 
-                          size="sm" 
-                          className="relative gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 transition-all duration-300 overflow-hidden group/btn"
+                        <a 
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          <span className="relative z-10 flex items-center justify-center">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
-                          </span>
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                        </Button>
+                          <Button 
+                            size="sm" 
+                            className="relative gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 transition-all duration-300 overflow-hidden group/btn"
+                          >
+                            <span className="relative z-10 flex items-center justify-center">
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Live Demo
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                          </Button>
+                        </a>
                       </motion.div>
                       
                       <motion.div
                         whileHover={{ scale: 1.05, rotate: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Button 
-                          size="sm" 
-                          variant="outline" 
-                          className="border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 rounded-xl backdrop-blur-sm"
+                        <a 
+                          href={project.codeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          <Github className="w-4 h-4" />
-                        </Button>
+                          <Button 
+                            size="sm" 
+                            variant="outline" 
+                            className="border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 rounded-xl backdrop-blur-sm"
+                          >
+                            <Github className="w-4 h-4" />
+                          </Button>
+                        </a>
                       </motion.div>
                     </div>
                   </div>

@@ -17,12 +17,12 @@ const featuredProjects = [
   },
   {
     id: 2,
-    title: 'E-commerce Platform',
-    description: 'Modern e-commerce solution with advanced filtering, payment integration, and inventory management.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&crop=edges',
+    title: 'Srilankas Guide',
+    description: '🌴 A tourism and educational website about Sri Lanka built with Joomla made 2022, featuring travel guides, historical insights, religious diversity, and more. Hosted via Netlify.',
+    image: '/sl.guide.jpg',
     tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    demoUrl: '#',
-    codeUrl: '#',
+    demoUrl: 'https://slguide.netlify.app/',
+    codeUrl: 'https://github.com/codedbydumi/Srilankas_Guide',
     featured: true
   },
   {
@@ -169,23 +169,35 @@ export function ProjectsPreview(): JSX.Element {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Button className="relative gradient-primary text-white shadow-xl hover:shadow-primary/25 transition-all duration-300 px-6 py-3 rounded-2xl overflow-hidden group/btn">
-                        <span className="relative z-10 flex items-center">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
-                        </span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                      </Button>
+                      <a 
+                        href={featuredProjects[0].demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button className="relative gradient-primary text-white shadow-xl hover:shadow-primary/25 transition-all duration-300 px-6 py-3 rounded-2xl overflow-hidden group/btn">
+                          <span className="relative z-10 flex items-center">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Live Demo
+                          </span>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                        </Button>
+                      </a>
                     </motion.div>
                     
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Button variant="outline" className="border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 px-6 py-3 rounded-2xl backdrop-blur-sm">
-                        <Github className="w-4 h-4 mr-2" />
-                        View Code
-                      </Button>
+                      <a 
+                        href={featuredProjects[0].codeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button variant="outline" className="border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 px-6 py-3 rounded-2xl backdrop-blur-sm">
+                          <Github className="w-4 h-4 mr-2" />
+                          View Code
+                        </Button>
+                      </a>
                     </motion.div>
                   </div>
                 </div>
@@ -261,19 +273,31 @@ export function ProjectsPreview(): JSX.Element {
                       whileTap={{ scale: 0.95 }}
                       className="flex-1"
                     >
-                      <Button size="sm" className="gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 transition-all duration-300">
-                        <ExternalLink className="w-3 h-3 mr-2" />
-                        Demo
-                      </Button>
+                      <a 
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" className="gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                          <ExternalLink className="w-3 h-3 mr-2" />
+                          Demo
+                        </Button>
+                      </a>
                     </motion.div>
                     
                     <motion.div
                       whileHover={{ scale: 1.05, rotate: 5 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Button size="sm" variant="outline" className="border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 rounded-xl backdrop-blur-sm">
-                        <Github className="w-4 h-4" />
-                      </Button>
+                      <a 
+                        href={project.codeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" variant="outline" className="border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 rounded-xl backdrop-blur-sm">
+                          <Github className="w-4 h-4" />
+                        </Button>
+                      </a>
                     </motion.div>
                   </div>
                 </div>

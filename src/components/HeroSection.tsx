@@ -36,14 +36,14 @@ export function HeroSection(): JSX.Element {
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="space-y-6"
+            className="space-y-8"
           >
             {/* Greeting with Badge */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="space-y-3"
+              className="space-y-4"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -88,7 +88,7 @@ export function HeroSection(): JSX.Element {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="space-y-6"
+              className="space-y-8"
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -127,7 +127,7 @@ export function HeroSection(): JSX.Element {
                 className="relative group"
               >
                 <motion.div
-                  className="relative p-3 rounded-2xl bg-gradient-to-r from-primary/3 via-secondary/3 to-accent/3 border border-primary/10 backdrop-blur-sm"
+                  className="relative p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-primary/3 via-secondary/3 to-accent/3 border border-primary/10 backdrop-blur-sm"
                   whileHover={{ 
                     scale: 1.02,
                     rotateX: 2,
@@ -178,7 +178,7 @@ export function HeroSection(): JSX.Element {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.6 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-3 sm:gap-4"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -237,7 +237,7 @@ export function HeroSection(): JSX.Element {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.8 }}
-              className="flex items-center space-x-4 pt-4"
+              className="flex items-center space-x-3 sm:space-x-4 pt-6"
             >
               <span className="text-muted-foreground font-medium">Find me on:</span>
               <div className="flex space-x-3">
