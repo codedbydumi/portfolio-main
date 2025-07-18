@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Download, MapPin, Calendar, Coffee, Target, Award, BookOpen, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profileImage from '../assets/profile-hero.jpg';
+import profileImage from '../assets/IMG_4086.jpg';
 
 const skills = [
   { name: 'Data Analysis', level: 90 },
@@ -17,28 +17,28 @@ const skills = [
 
 const journey = [
   {
-    year: '2024',
+    year: '2025',
     title: 'Data Science Student',
-    description: 'Currently pursuing advanced studies in Data Science, focusing on machine learning and statistical analysis.',
+    description: 'Currently pursuing Data Science at university, focusing on advanced analytics, machine learning algorithms, and statistical modeling to solve complex real-world problems.',
+    type: 'education'
+  },
+  {
+    year: '2024',
+    title: 'Higher National Diploma in Computing & Software Engineering',
+    description: 'Completed HND in Computing and Software Engineering offered by Cardiff Metropolitan University at ICBT Campus, specializing in advanced programming and software architecture.',
     type: 'education'
   },
   {
     year: '2023',
-    title: 'Frontend Developer',
-    description: 'Started working on modern web applications using React, TypeScript, and advanced UI frameworks.',
+    title: 'Self-Directed Projects & Development',
+    description: 'Started building personal projects using both code and no-code tools to create innovative programs. Developed web applications, automation scripts, and explored various programming frameworks.',
     type: 'work'
   },
   {
     year: '2022',
-    title: 'Programming Foundation',
-    description: 'Built strong foundation in programming with Python, JavaScript, and software development principles.',
+    title: 'Higher Studies & Programming Foundation',
+    description: 'Completed Higher Studies at Christ King College while simultaneously building a strong foundation in programming with Python, JavaScript, and software development principles.',
     type: 'education'
-  },
-  {
-    year: '2021',
-    title: 'Tech Enthusiast',
-    description: 'Discovered passion for technology and began learning programming through online courses and projects.',
-    type: 'personal'
   }
 ];
 
@@ -88,8 +88,9 @@ export default function About(): JSX.Element {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-lg sm:text-xl text-muted-foreground leading-relaxed"
                 >
-                  I'm a passionate data science student and full-stack developer who loves turning 
-                  complex data into actionable insights and building beautiful, functional applications.
+                Hi, I'm Dumindu Thushan — passionate about turning ideas into functional, user-focused digital experiences.
+
+I enjoy blending analytical thinking with creative problem-solving to craft clean, responsive, and scalable applications. Whether it's a simple interface or a full product, I aim to build things that are both beautiful and useful.
                 </motion.p>
               </div>
 
@@ -124,13 +125,19 @@ export default function About(): JSX.Element {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="relative gradient-primary text-white shadow-xl hover:shadow-primary/25 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-2xl overflow-hidden group">
-                  <span className="relative z-10 flex items-center">
-                    <Download className="w-5 h-5 mr-2" />
-                    Download Resume
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                </Button>
+                <a 
+                  href="https://drive.google.com/drive/folders/1xXyUafbzqO70ETmZRjbvPFs7tKXMkAB8?usp=sharing" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Button className="relative gradient-primary text-white shadow-xl hover:shadow-primary/25 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-2xl overflow-hidden group">
+                    <span className="relative z-10 flex items-center">
+                      <Download className="w-5 h-5 mr-2" />
+                      Download Resume
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                  </Button>
+                </a>
               </motion.div>
             </motion.div>
 

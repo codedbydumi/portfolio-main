@@ -242,9 +242,9 @@ export function HeroSection(): JSX.Element {
               <span className="text-muted-foreground font-medium">Find me on:</span>
               <div className="flex space-x-3">
                 {[
-                  { icon: Github, label: "GitHub" },
-                  { icon: Linkedin, label: "LinkedIn" },
-                  { icon: Mail, label: "Email" }
+                  { icon: Github, label: "GitHub", href: "https://github.com/codedbydumi" },
+                  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/dumindu-thushan/" },
+                  { icon: Mail, label: "Email", href: "mailto:duminduthushan9@gmail.com" }
                 ].map((social, index) => (
                   <motion.div
                     key={social.label}
@@ -254,13 +254,19 @@ export function HeroSection(): JSX.Element {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 2 + (index * 0.1) }}
                   >
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
-                      className="w-12 h-12 rounded-xl hover:text-primary hover:bg-primary/10 transition-all duration-300 border border-border/30 hover:border-primary/30 backdrop-blur-sm"
+                    <a 
+                      href={social.href}
+                      target={social.label === "Email" ? "_self" : "_blank"}
+                      rel={social.label === "Email" ? "" : "noopener noreferrer"}
                     >
-                      <social.icon className="w-6 h-6" />
-                    </Button>
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="w-12 h-12 rounded-xl hover:text-primary hover:bg-primary/10 transition-all duration-300 border border-border/30 hover:border-primary/30 backdrop-blur-sm"
+                      >
+                        <social.icon className="w-6 h-6" />
+                      </Button>
+                    </a>
                   </motion.div>
                 ))}
               </div>
