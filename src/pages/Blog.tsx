@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Tag, BookOpen, Star, Filter, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 // Mock blog data - in a real app, this would come from a CMS or API
@@ -87,80 +88,178 @@ const blogPosts = [
 
 const categories = ['All', ...Array.from(new Set(blogPosts.map(post => post.category)))];
 
-const Blog = () => {
+const Blog = (): JSX.Element => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  
   const featuredPosts = blogPosts.filter(post => post.featured);
-  const regularPosts = blogPosts.filter(post => !post.featured);
+  const filteredPosts = selectedCategory === 'All' 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
     <div className="min-h-screen pt-16">
-      {/* Hero Section */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 gradient-hero opacity-20" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-float" />
+      {/* Enhanced Hero Section */}
+      <section className="py-16 sm:py-20 relative overflow-hidden">
+        {/* Enhanced Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3" />
+        <div className="absolute top-20 right-10 w-80 h-80 bg-gradient-to-br from-accent/8 to-primary/5 rounded-full blur-3xl animate-float opacity-60" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-tr from-secondary/8 to-accent/5 rounded-full blur-3xl animate-float opacity-60" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-primary/8 to-secondary/5 rounded-full blur-3xl animate-float opacity-40" style={{ animationDelay: '4s' }} />
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Floating particles */}
+        <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
+        <div className="absolute bottom-1/3 left-1/5 w-1 h-1 bg-secondary/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-2/3 right-1/4 w-1.5 h-1.5 bg-accent/35 rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center mb-16 sm:mb-20"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block mb-6"
+            >
+              <span className="px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary border border-primary/20 rounded-full text-sm font-medium backdrop-blur-sm flex items-center space-x-2">
+                <BookOpen className="w-4 h-4" />
+                <span>Latest Insights</span>
+              </span>
+            </motion.div>
+            
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent mb-6 leading-tight">
+              My <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Blog</span>
+            </h1>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            >
+              Thoughts, tutorials, and insights about web development, data science, and technology. 
+              Join me on my journey of continuous learning and discovery.
+            </motion.p>
+          </motion.div>
+
+          {/* Enhanced Category Filter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              My <span className="bg-gradient-primary bg-clip-text text-transparent">Blog</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Thoughts, tutorials, and insights about web development, data science, and technology. 
-              Join me on my journey of continuous learning and discovery.
-            </p>
+            {categories.map((category, index) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.7 + (index * 0.1) }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  onClick={() => setSelectedCategory(category)}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  className={`relative transition-all duration-300 px-6 py-3 rounded-2xl backdrop-blur-sm ${
+                    selectedCategory === category
+                      ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/25'
+                      : 'border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 hover:text-primary'
+                  }`}
+                >
+                  <Filter className="w-4 h-4 mr-2" />
+                  {category}
+                  {selectedCategory === category && (
+                    <motion.div
+                      layoutId="activeBlogFilter"
+                      className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl"
+                      style={{ zIndex: -1 }}
+                      transition={{ type: "spring", duration: 0.6, stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </Button>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Featured Posts */}
+      {/* Enhanced Featured Posts */}
       {featuredPosts.length > 0 && (
-        <section className="pb-20">
+        <section className="pb-16 sm:pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-12"
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="mb-12 sm:mb-16"
             >
-              <h2 className="text-3xl font-bold text-foreground mb-8">Featured Posts</h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex items-center space-x-3 mb-8"
+              >
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                  <Star className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                  Featured Posts
+                </h2>
+              </motion.div>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                 {featuredPosts.map((post, index) => (
                   <motion.article
                     key={post.slug}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 * index }}
-                    className="group"
+                    initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.7, delay: 0.5 + (index * 0.1), ease: "easeOut" }}
+                    whileHover={{ y: -8 }}
+                    className="group relative"
                   >
                     <Link to={`/blog/${post.slug}`}>
-                      <div className="relative rounded-2xl overflow-hidden gradient-card border border-border/20 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-elegant">
-                        {/* Featured Badge */}
-                        <div className="absolute top-4 left-4 z-10">
-                          <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/90 text-white rounded-full border border-primary/20">
-                            Featured
-                          </span>
-                        </div>
+                      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-background via-background/80 to-muted/20 border border-border/30 hover:border-primary/40 transition-all duration-500 backdrop-blur-sm">
+                        {/* Enhanced background glow */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        
+                        {/* Enhanced Featured Badge */}
+                        <motion.div 
+                          className="absolute top-4 left-4 z-20"
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
+                        >
+                          <div className="px-3 py-1 bg-gradient-to-r from-primary to-secondary text-white text-xs font-bold rounded-full shadow-lg flex items-center space-x-1">
+                            <Zap className="w-3 h-3" />
+                            <span>FEATURED</span>
+                          </div>
+                        </motion.div>
 
-                        {/* Image */}
+                        {/* Enhanced Image */}
                         <div className="relative overflow-hidden">
-                          <img
+                          <motion.img
                             src={post.image}
                             alt={post.title}
-                            className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-56 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.3 }}
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
                         </div>
 
-                        {/* Content */}
-                        <div className="p-6">
+                        {/* Enhanced Content */}
+                        <div className="p-6 sm:p-8 relative z-10">
                           <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-4">
-                            <span className="inline-block px-2 py-1 bg-muted/50 rounded-full border border-border/30">
+                            <motion.span 
+                              className="inline-block px-3 py-1 bg-gradient-to-r from-muted/60 to-muted/40 rounded-xl border border-border/40 font-medium"
+                              whileHover={{ scale: 1.05 }}
+                            >
                               {post.category}
-                            </span>
+                            </motion.span>
                             <div className="flex items-center space-x-1">
                               <Calendar className="w-4 h-4" />
                               <span>{new Date(post.publishedDate).toLocaleDateString()}</span>
@@ -171,37 +270,46 @@ const Blog = () => {
                             </div>
                           </div>
 
-                          <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-200">
+                          <motion.h3 
+                            className="text-xl sm:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
+                            whileHover={{ scale: 1.02 }}
+                          >
                             {post.title}
-                          </h3>
+                          </motion.h3>
                           
-                          <p className="text-muted-foreground leading-relaxed mb-4">
+                          <p className="text-muted-foreground leading-relaxed mb-6 text-sm sm:text-base">
                             {post.excerpt}
                           </p>
 
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {post.tags.map((tag) => (
-                              <span
+                          <div className="flex flex-wrap gap-2 mb-6">
+                            {post.tags.map((tag, tagIndex) => (
+                              <motion.span
                                 key={tag}
-                                className="inline-flex items-center px-2 py-1 text-xs bg-muted/50 text-muted-foreground rounded-full border border-border/30"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.3, delay: 0.9 + (index * 0.1) + (tagIndex * 0.05) }}
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                className="inline-flex items-center px-3 py-1 text-xs bg-gradient-to-r from-muted/60 to-muted/40 text-muted-foreground rounded-xl border border-border/40 hover:bg-gradient-to-r hover:from-primary/15 hover:to-secondary/15 hover:text-primary hover:border-primary/40 transition-all duration-300 cursor-default backdrop-blur-sm"
                               >
                                 <Tag className="w-3 h-3 mr-1" />
                                 {tag}
-                              </span>
+                              </motion.span>
                             ))}
                           </div>
 
-                          <Button 
-                            variant="ghost" 
-                            className="p-0 h-auto font-medium text-primary hover:text-primary/80 group/btn"
+                          <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                           >
-                            Read More 
-                            <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                          </Button>
+                            <Button 
+                              variant="ghost" 
+                              className="p-0 h-auto font-semibold text-primary hover:text-primary/80 group/btn text-base"
+                            >
+                              Read More 
+                              <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                            </Button>
+                          </motion.div>
                         </div>
-
-                        {/* Hover Glow Effect */}
-                        <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300" />
                       </div>
                     </Link>
                   </motion.article>
@@ -212,51 +320,81 @@ const Blog = () => {
         </section>
       )}
 
-      {/* All Posts */}
-      <section className="pb-20">
+      {/* Enhanced All Posts */}
+      <section className="pb-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           >
-            <h2 className="text-3xl font-bold text-foreground mb-8">All Posts</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post, index) => (
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex items-center space-x-3 mb-8"
+            >
+              <div className="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center">
+                <BookOpen className="w-5 h-5 text-white" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-secondary bg-clip-text text-transparent">
+                {selectedCategory === 'All' ? 'All Posts' : `${selectedCategory} Posts`}
+              </h2>
+            </motion.div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {filteredPosts.map((post, index) => (
                 <motion.article
                   key={post.slug}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 * index }}
-                  className="group"
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.7, delay: 0.1 * index, ease: "easeOut" }}
+                  whileHover={{ y: -8 }}
+                  className="group relative"
                 >
                   <Link to={`/blog/${post.slug}`}>
-                    <div className="relative rounded-2xl overflow-hidden gradient-card border border-border/20 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-elegant">
-                      {/* Image */}
+                    <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-background via-background/80 to-muted/20 border border-border/30 hover:border-primary/40 transition-all duration-500 backdrop-blur-sm">
+                      {/* Enhanced background glow */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      {/* Enhanced Image */}
                       <div className="relative overflow-hidden">
-                        <img
+                        <motion.img
                           src={post.image}
                           alt={post.title}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                        
+                        {/* Article number indicator */}
+                        <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center text-primary text-sm font-bold backdrop-blur-sm border border-primary/20">
+                          {index + 1}
+                        </div>
                       </div>
 
-                      {/* Content */}
-                      <div className="p-6">
+                      {/* Enhanced Content */}
+                      <div className="p-6 relative z-10">
                         <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-4">
-                          <span className="inline-block px-2 py-1 bg-muted/50 rounded-full border border-border/30">
+                          <motion.span 
+                            className="inline-block px-3 py-1 bg-gradient-to-r from-muted/60 to-muted/40 rounded-xl border border-border/40 font-medium"
+                            whileHover={{ scale: 1.05 }}
+                          >
                             {post.category}
-                          </span>
+                          </motion.span>
                           <div className="flex items-center space-x-1">
                             <Calendar className="w-4 h-4" />
                             <span>{new Date(post.publishedDate).toLocaleDateString()}</span>
                           </div>
                         </div>
 
-                        <h3 className="text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-200 line-clamp-2">
+                        <motion.h3 
+                          className="text-lg sm:text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2"
+                          whileHover={{ scale: 1.02 }}
+                        >
                           {post.title}
-                        </h3>
+                        </motion.h3>
                         
                         <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
                           {post.excerpt}
@@ -268,24 +406,49 @@ const Blog = () => {
                             <span>{post.readTime}</span>
                           </div>
                           
-                          <Button 
-                            variant="ghost" 
-                            size="sm" 
-                            className="p-0 h-auto font-medium text-primary hover:text-primary/80 group/btn"
+                          <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                           >
-                            Read 
-                            <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                          </Button>
+                            <Button 
+                              variant="ghost" 
+                              size="sm" 
+                              className="p-0 h-auto font-semibold text-primary hover:text-primary/80 group/btn"
+                            >
+                              Read 
+                              <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                            </Button>
+                          </motion.div>
                         </div>
                       </div>
-
-                      {/* Hover Glow Effect */}
-                      <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300" />
                     </div>
                   </Link>
                 </motion.article>
               ))}
             </div>
+
+            {/* Enhanced Empty State */}
+            {filteredPosts.length === 0 && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                className="text-center py-20"
+              >
+                <div className="relative inline-block p-8 bg-gradient-to-br from-background via-background/80 to-muted/20 rounded-3xl border border-border/30 backdrop-blur-sm">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 rounded-3xl" />
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <BookOpen className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">No posts found</h3>
+                    <p className="text-muted-foreground">
+                      No posts found in the "{selectedCategory}" category.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </section>
