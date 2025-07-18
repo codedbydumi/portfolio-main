@@ -17,6 +17,7 @@ import BlogPost from "./pages/BlogPost";
 import SayHello from "./pages/SayHello";
 import NotFound from "./pages/NotFound";
 
+
 const queryClient = new QueryClient();
 
 const App = () => {
