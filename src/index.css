@@ -4,7 +4,16 @@
 @tailwind utilities;
 /* DevCraft Portfolio Design System - Modern Developer Theme */
 
-
+body {
+  font-family: 
+    -apple-system,           /* macOS/iOS */
+    BlinkMacSystemFont,      /* macOS */
+    'Segoe UI',              /* Windows */
+    Roboto,                  /* Android */
+    'Helvetica Neue',        /* macOS fallback */
+    Arial,                   /* Universal fallback */
+    sans-serif;
+}
 
 @layer base {
   :root {
