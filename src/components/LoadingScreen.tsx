@@ -345,3 +345,4 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
     </motion.div>
   );
 }
+
