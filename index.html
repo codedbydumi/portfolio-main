@@ -2,29 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    
+    <!-- Favicon links -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     
-  <link rel="preload" href="/profile-hero.jpg" as="image" type="image/jpeg">
-  <link rel="preload" href="/sl_guide.jpg" as="image" type="image/jpeg">
+    <!-- Critical resource preconnects and preloads -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/profile-hero.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="/sl_guide.jpg" as="image" type="image/jpeg">
+    
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dumindu Thushan Portfolio</title>
     <meta name="description" content="Portfolio of Dumindu Thushan - Data Science Student & Full-Stack Developer. Showcasing projects in machine learning, web development, and data analytics." />
     <meta name="author" content="Dumindu Thushan" />
     <meta name="keywords" content="data science, full stack developer, machine learning, react, python, portfolio, dumindu thushan" />
      
+    <!-- Open Graph meta tags -->
     <meta property="og:title" content="Dumindu Thushan | Data Science & Full-Stack Developer" />
     <meta property="og:description" content="Portfolio showcasing projects in data science, machine learning, and web development. Passionate about turning data into insights." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:url" content="https://duminduthushan.com" />
      
+    <!-- Twitter meta tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@dumindu_thushan" />
     <meta name="twitter:image" content="/og-image.jpg" />
+    
+    <!-- Font optimization - load fonts faster -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS for loading screen to prevent FOUC -->
+    <style>
+      /* Critical styles for immediate rendering */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+        background: #ffffff;
+        color: #0a0a0a;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading screen critical styles */
+      .loading-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+      }
+      
+      /* Hide content until fully loaded to prevent flash */
+      .app-content {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      
+      .app-content.loaded {
+        opacity: 1;
+      }
+    </style>
   </head>
    
   <body>
