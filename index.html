@@ -9,9 +9,12 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     
-    <!-- Critical resource preconnects and preloads -->
+    <!-- CRITICAL: Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- CRITICAL: Preload essential resources -->
     <link rel="preload" href="/profile-hero.jpg" as="image" type="image/jpeg">
     <link rel="preload" href="/sl_guide.jpg" as="image" type="image/jpeg">
     
@@ -34,12 +37,9 @@
     <meta name="twitter:site" content="@dumindu_thushan" />
     <meta name="twitter:image" content="/og-image.jpg" />
     
-    <!-- Font optimization - load fonts faster -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Critical CSS for loading screen to prevent FOUC -->
+    <!-- CRITICAL: Inline essential CSS to prevent render blocking -->
     <style>
-      /* Critical styles for immediate rendering */
+      /* Critical above-the-fold styles */
       * {
         margin: 0;
         padding: 0;
@@ -70,7 +70,27 @@
         background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
       }
       
-      /* Hide content until fully loaded to prevent flash */
+      /* Navigation critical styles */
+      .nav-critical {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Hero section critical layout */
+      .hero-critical {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      
+      /* Prevent flash of unstyled content */
       .app-content {
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
@@ -79,7 +99,30 @@
       .app-content.loaded {
         opacity: 1;
       }
+      
+      /* Critical button styles */
+      .btn-critical {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
     </style>
+    
+    <!-- Load fonts optimally -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CRITICAL: Defer main CSS to prevent render blocking -->
+    <link rel="preload" href="/assets/index-Cln0lV6y.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/index-Cln0lV6y.css"></noscript>
   </head>
    
   <body>
