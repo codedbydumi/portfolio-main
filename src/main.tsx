@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { SpeedInsights } from '@vercel/speed-insights/react'
-import { Analytics } from '@vercel/analytics/next';
+
 import App from './App.tsx'
 import './index.css'
 
@@ -8,6 +8,6 @@ createRoot(document.getElementById("root")!).render(
   <>
     <App />
     <SpeedInsights />
-    <Analytics />
+  
   </>
 );
