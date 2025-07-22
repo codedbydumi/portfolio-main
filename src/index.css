@@ -77,19 +77,12 @@ body {
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -279,18 +272,115 @@ body {
     }
   }
   
+  /* Optimized float animation - updated version */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { 
+      transform: translateY(0px) scale(1); 
+    }
+    50% { 
+      transform: translateY(-20px) scale(1.02); 
+    }
   }
-  
+
+  @keyframes float-delayed {
+    0%, 100% { 
+      transform: translateY(0px) scale(1); 
+    }
+    50% { 
+      transform: translateY(15px) scale(0.98); 
+    }
+  }
+
+  /* Simple wave animation for emoji */
+  @keyframes wave {
+    0%, 50%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(-4deg); }
+  }
+
+  /* Slow spin for sparkles */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Expanding underline */
+  @keyframes expand {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+
+  /* Slow bounce for arrows */
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* Gentle pulse for glow effects */
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+
   /* Custom Animation Classes */
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
   
+  /* Updated float animation class */
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 8s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .animate-wave {
+    animation: wave 2.5s ease-in-out infinite;
+    display: inline-block;
+    transform-origin: 70% 70%;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+
+  .animate-expand {
+    animation: expand 1.5s ease-out 0.5s both;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  /* Performance optimizations */
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse-slow,
+  .animate-spin-slow {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Disable animations on low-end devices */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float,
+    .animate-float-delayed,
+    .animate-wave,
+    .animate-spin-slow,
+    .animate-expand,
+    .animate-bounce-slow,
+    .animate-pulse-slow {
+      animation: none;
+    }
   }
   
   /* Responsive Text */

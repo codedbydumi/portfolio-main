@@ -98,168 +98,113 @@ const Blog = (): JSX.Element => {
 
   return (
     <div className="min-h-screen pt-16">
-      {/* Enhanced Hero Section */}
+      {/* Optimized Hero Section */}
       <section className="py-16 sm:py-20 relative overflow-hidden">
-        {/* Enhanced Background Elements */}
+        {/* Simplified background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3" />
-        <div className="absolute top-20 right-10 w-80 h-80 bg-gradient-to-br from-accent/8 to-primary/5 rounded-full blur-3xl animate-float opacity-60" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-tr from-secondary/8 to-accent/5 rounded-full blur-3xl animate-float opacity-60" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-primary/8 to-secondary/5 rounded-full blur-3xl animate-float opacity-40" style={{ animationDelay: '4s' }} />
         
-        {/* Floating particles */}
-        <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
-        <div className="absolute bottom-1/3 left-1/5 w-1 h-1 bg-secondary/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-2/3 right-1/4 w-1.5 h-1.5 bg-accent/35 rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+        {/* Reduced floating orbs - only 2 with CSS animations */}
+        <div className="absolute top-20 right-10 w-60 h-60 bg-gradient-to-br from-accent/6 to-primary/3 rounded-full blur-2xl animate-float opacity-40" />
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-tr from-secondary/6 to-accent/3 rounded-full blur-2xl animate-float-delayed opacity-40" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center mb-16 sm:mb-20"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block mb-6"
-            >
+            <div className="inline-block mb-6">
               <span className="px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary border border-primary/20 rounded-full text-sm font-medium backdrop-blur-sm flex items-center space-x-2">
                 <BookOpen className="w-4 h-4" />
                 <span>Latest Insights</span>
               </span>
-            </motion.div>
+            </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent mb-6 leading-tight">
               My <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Blog</span>
             </h1>
             
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-            >
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Thoughts, tutorials, and insights about web development, data science, and technology. 
               Join me on my journey of continuous learning and discovery.
-            </motion.p>
+            </p>
           </motion.div>
 
-          {/* Enhanced Category Filter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16"
-          >
-            {categories.map((category, index) => (
-              <motion.div
+          {/* Optimized Category Filter - removed complex animations */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16">
+            {categories.map((category) => (
+              <Button
                 key={category}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.7 + (index * 0.1) }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                onClick={() => setSelectedCategory(category)}
+                variant={selectedCategory === category ? "default" : "outline"}
+                className={`relative transition-all duration-300 px-6 py-3 rounded-2xl backdrop-blur-sm hover:scale-105 ${
+                  selectedCategory === category
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/25'
+                    : 'border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 hover:text-primary'
+                }`}
               >
-                <Button
-                  onClick={() => setSelectedCategory(category)}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  className={`relative transition-all duration-300 px-6 py-3 rounded-2xl backdrop-blur-sm ${
-                    selectedCategory === category
-                      ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/25'
-                      : 'border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 hover:text-primary'
-                  }`}
-                >
-                  <Filter className="w-4 h-4 mr-2" />
-                  {category}
-                  {selectedCategory === category && (
-                    <motion.div
-                      layoutId="activeBlogFilter"
-                      className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl"
-                      style={{ zIndex: -1 }}
-                      transition={{ type: "spring", duration: 0.6, stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                </Button>
-              </motion.div>
+                <Filter className="w-4 h-4 mr-2" />
+                {category}
+              </Button>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Enhanced Featured Posts */}
+      {/* Optimized Featured Posts */}
       {featuredPosts.length > 0 && (
         <section className="pb-16 sm:pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="mb-12 sm:mb-16"
-            >
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex items-center space-x-3 mb-8"
-              >
+            <div className="mb-12 sm:mb-16">
+              <div className="flex items-center space-x-3 mb-8">
                 <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
                   <Star className="w-5 h-5 text-white" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
                   Featured Posts
                 </h2>
-              </motion.div>
+              </div>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                 {featuredPosts.map((post, index) => (
                   <motion.article
                     key={post.slug}
-                    initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.7, delay: 0.5 + (index * 0.1), ease: "easeOut" }}
-                    whileHover={{ y: -8 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                     className="group relative"
                   >
                     <Link to={`/blog/${post.slug}`}>
-                      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-background via-background/80 to-muted/20 border border-border/30 hover:border-primary/40 transition-all duration-500 backdrop-blur-sm">
-                        {/* Enhanced background glow */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-background via-background/80 to-muted/20 border border-border/30 hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm">
+                        {/* Simplified background glow */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         
-                        {/* Enhanced Featured Badge */}
-                        <motion.div 
-                          className="absolute top-4 left-4 z-20"
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
-                        >
+                        {/* Featured Badge - static, no animation */}
+                        <div className="absolute top-4 left-4 z-20">
                           <div className="px-3 py-1 bg-gradient-to-r from-primary to-secondary text-white text-xs font-bold rounded-full shadow-lg flex items-center space-x-1">
                             <Zap className="w-3 h-3" />
                             <span>FEATURED</span>
                           </div>
-                        </motion.div>
-
-                        {/* Enhanced Image */}
-                        <div className="relative overflow-hidden">
-                          <motion.img
-                            src={post.image}
-                            alt={post.title}
-                            className="w-full h-56 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-700"
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.3 }}
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
                         </div>
 
-                        {/* Enhanced Content */}
+                        {/* Optimized Image */}
+                        <div className="relative overflow-hidden">
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            className="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
+                        </div>
+
+                        {/* Content */}
                         <div className="p-6 sm:p-8 relative z-10">
                           <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-4">
-                            <motion.span 
-                              className="inline-block px-3 py-1 bg-gradient-to-r from-muted/60 to-muted/40 rounded-xl border border-border/40 font-medium"
-                              whileHover={{ scale: 1.05 }}
-                            >
+                            <span className="inline-block px-3 py-1 bg-gradient-to-r from-muted/60 to-muted/40 rounded-xl border border-border/40 font-medium hover:scale-105 transition-transform duration-300">
                               {post.category}
-                            </motion.span>
+                            </span>
                             <div className="flex items-center space-x-1">
                               <Calendar className="w-4 h-4" />
                               <span>{new Date(post.publishedDate).toLocaleDateString()}</span>
@@ -270,103 +215,81 @@ const Blog = (): JSX.Element => {
                             </div>
                           </div>
 
-                          <motion.h3 
-                            className="text-xl sm:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
-                            whileHover={{ scale: 1.02 }}
-                          >
+                          <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                             {post.title}
-                          </motion.h3>
+                          </h3>
                           
                           <p className="text-muted-foreground leading-relaxed mb-6 text-sm sm:text-base">
                             {post.excerpt}
                           </p>
 
+                          {/* Simplified Tags - no individual animations */}
                           <div className="flex flex-wrap gap-2 mb-6">
-                            {post.tags.map((tag, tagIndex) => (
-                              <motion.span
+                            {post.tags.map((tag) => (
+                              <span
                                 key={tag}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.3, delay: 0.9 + (index * 0.1) + (tagIndex * 0.05) }}
-                                whileHover={{ scale: 1.05, y: -2 }}
-                                className="inline-flex items-center px-3 py-1 text-xs bg-gradient-to-r from-muted/60 to-muted/40 text-muted-foreground rounded-xl border border-border/40 hover:bg-gradient-to-r hover:from-primary/15 hover:to-secondary/15 hover:text-primary hover:border-primary/40 transition-all duration-300 cursor-default backdrop-blur-sm"
+                                className="inline-flex items-center px-3 py-1 text-xs bg-gradient-to-r from-muted/60 to-muted/40 text-muted-foreground rounded-xl border border-border/40 hover:bg-gradient-to-r hover:from-primary/15 hover:to-secondary/15 hover:text-primary hover:border-primary/40 hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm"
                               >
                                 <Tag className="w-3 h-3 mr-1" />
                                 {tag}
-                              </motion.span>
+                              </span>
                             ))}
                           </div>
 
-                          <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                          <Button 
+                            variant="ghost" 
+                            className="p-0 h-auto font-semibold text-primary hover:text-primary/80 hover:scale-105 transition-all duration-300 group text-base"
                           >
-                            <Button 
-                              variant="ghost" 
-                              className="p-0 h-auto font-semibold text-primary hover:text-primary/80 group/btn text-base"
-                            >
-                              Read More 
-                              <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                            </Button>
-                          </motion.div>
+                            Read More 
+                            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                          </Button>
                         </div>
                       </div>
                     </Link>
                   </motion.article>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
       )}
 
-      {/* Enhanced All Posts */}
+      {/* Optimized All Posts */}
       <section className="pb-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          >
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex items-center space-x-3 mb-8"
-            >
+          <div>
+            <div className="flex items-center space-x-3 mb-8">
               <div className="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center">
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-secondary bg-clip-text text-transparent">
                 {selectedCategory === 'All' ? 'All Posts' : `${selectedCategory} Posts`}
               </h2>
-            </motion.div>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredPosts.map((post, index) => (
                 <motion.article
                   key={post.slug}
-                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.7, delay: 0.1 * index, ease: "easeOut" }}
-                  whileHover={{ y: -8 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
                   className="group relative"
                 >
                   <Link to={`/blog/${post.slug}`}>
-                    <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-background via-background/80 to-muted/20 border border-border/30 hover:border-primary/40 transition-all duration-500 backdrop-blur-sm">
-                      {/* Enhanced background glow */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-background via-background/80 to-muted/20 border border-border/30 hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm">
+                      {/* Simplified background glow */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       
-                      {/* Enhanced Image */}
+                      {/* Image */}
                       <div className="relative overflow-hidden">
-                        <motion.img
+                        <img
                           src={post.image}
                           alt={post.title}
-                          className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-700"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
+                          className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
                         
                         {/* Article number indicator */}
                         <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center text-primary text-sm font-bold backdrop-blur-sm border border-primary/20">
@@ -374,27 +297,21 @@ const Blog = (): JSX.Element => {
                         </div>
                       </div>
 
-                      {/* Enhanced Content */}
+                      {/* Content */}
                       <div className="p-6 relative z-10">
                         <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-4">
-                          <motion.span 
-                            className="inline-block px-3 py-1 bg-gradient-to-r from-muted/60 to-muted/40 rounded-xl border border-border/40 font-medium"
-                            whileHover={{ scale: 1.05 }}
-                          >
+                          <span className="inline-block px-3 py-1 bg-gradient-to-r from-muted/60 to-muted/40 rounded-xl border border-border/40 font-medium hover:scale-105 transition-transform duration-300">
                             {post.category}
-                          </motion.span>
+                          </span>
                           <div className="flex items-center space-x-1">
                             <Calendar className="w-4 h-4" />
                             <span>{new Date(post.publishedDate).toLocaleDateString()}</span>
                           </div>
                         </div>
 
-                        <motion.h3 
-                          className="text-lg sm:text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2"
-                          whileHover={{ scale: 1.02 }}
-                        >
+                        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
                           {post.title}
-                        </motion.h3>
+                        </h3>
                         
                         <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
                           {post.excerpt}
@@ -406,19 +323,14 @@ const Blog = (): JSX.Element => {
                             <span>{post.readTime}</span>
                           </div>
                           
-                          <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                          <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            className="p-0 h-auto font-semibold text-primary hover:text-primary/80 hover:scale-105 transition-all duration-300 group"
                           >
-                            <Button 
-                              variant="ghost" 
-                              size="sm" 
-                              className="p-0 h-auto font-semibold text-primary hover:text-primary/80 group/btn"
-                            >
-                              Read 
-                              <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                            </Button>
-                          </motion.div>
+                            Read 
+                            <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
+                          </Button>
                         </div>
                       </div>
                     </div>
@@ -427,14 +339,9 @@ const Blog = (): JSX.Element => {
               ))}
             </div>
 
-            {/* Enhanced Empty State */}
+            {/* Empty State */}
             {filteredPosts.length === 0 && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                className="text-center py-20"
-              >
+              <div className="text-center py-20">
                 <div className="relative inline-block p-8 bg-gradient-to-br from-background via-background/80 to-muted/20 rounded-3xl border border-border/30 backdrop-blur-sm">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 rounded-3xl" />
                   <div className="relative z-10">
@@ -447,9 +354,9 @@ const Blog = (): JSX.Element => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

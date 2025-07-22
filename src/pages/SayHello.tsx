@@ -112,76 +112,57 @@ const SayHello = (): JSX.Element => {
 
   return (
     <div className="min-h-screen pt-16">
-      {/* Enhanced Hero Section */}
+      {/* Optimized Hero Section */}
       <section className="py-16 sm:py-20 relative overflow-hidden">
-        {/* Enhanced Background Elements */}
+        {/* Simplified background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3" />
-        <div className="absolute top-20 left-10 w-80 h-80 bg-gradient-to-br from-primary/8 to-secondary/5 rounded-full blur-3xl animate-float opacity-60" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tr from-secondary/8 to-accent/5 rounded-full blur-3xl animate-float opacity-60" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-accent/8 to-primary/5 rounded-full blur-3xl animate-float opacity-40" style={{ animationDelay: '4s' }} />
         
-        {/* Floating particles */}
-        <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
-        <div className="absolute bottom-1/3 left-1/5 w-1 h-1 bg-secondary/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-2/3 right-1/4 w-1.5 h-1.5 bg-accent/35 rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+        {/* Reduced floating orbs - only 2 with CSS animations */}
+        <div className="absolute top-20 left-10 w-60 h-60 bg-gradient-to-br from-primary/6 to-secondary/3 rounded-full blur-2xl animate-float opacity-40" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tr from-secondary/6 to-accent/3 rounded-full blur-2xl animate-float-delayed opacity-40" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center mb-16 sm:mb-20"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block mb-6"
-            >
+            <div className="inline-block mb-6">
               <span className="px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary border border-primary/20 rounded-full text-sm font-medium backdrop-blur-sm flex items-center space-x-2">
                 <MessageCircle className="w-4 h-4" />
                 <span>Let's Connect</span>
               </span>
-            </motion.div>
+            </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent mb-6 leading-tight">
               Say <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Hello</span>
             </h1>
             
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-            >
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Let's start a conversation! Whether you have a project in mind, want to collaborate, 
               or just want to connect, I'd love to hear from you.
-            </motion.p>
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Enhanced Contact Content */}
+      {/* Optimized Contact Content */}
       <section className="pb-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-            {/* Enhanced Contact Form */}
+            {/* Optimized Contact Form */}
             <div className="lg:col-span-2">
               <motion.div
-                initial={{ opacity: 0, x: -40, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                className="relative bg-gradient-to-br from-background via-background/90 to-muted/20 rounded-3xl p-8 sm:p-10 border border-border/30 hover:border-primary/40 transition-all duration-500 backdrop-blur-sm overflow-hidden group"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="relative bg-gradient-to-br from-background via-background/90 to-muted/20 rounded-3xl p-8 sm:p-10 border border-border/30 hover:border-primary/40 hover:scale-105 transition-all duration-300 backdrop-blur-sm overflow-hidden group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 <div className="relative z-10">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="flex items-center space-x-3 mb-8"
-                  >
+                  <div className="flex items-center space-x-3 mb-8">
                     <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
                       {isSuccess ? (
                         <CheckCircle className="w-5 h-5 text-white" />
@@ -192,15 +173,11 @@ const SayHello = (): JSX.Element => {
                     <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
                       {isSuccess ? 'Message Sent!' : 'Send me a message'}
                     </h2>
-                  </motion.div>
+                  </div>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
-                      >
+                      <div>
                         <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-3">
                           Your Name
                         </label>
@@ -215,12 +192,8 @@ const SayHello = (): JSX.Element => {
                           placeholder="John Doe"
                           disabled={isLoading}
                         />
-                      </motion.div>
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                      >
+                      </div>
+                      <div>
                         <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-3">
                           Email Address
                         </label>
@@ -235,14 +208,10 @@ const SayHello = (): JSX.Element => {
                           placeholder="john@example.com"
                           disabled={isLoading}
                         />
-                      </motion.div>
+                      </div>
                     </div>
                     
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 }}
-                    >
+                    <div>
                       <label htmlFor="subject" className="block text-sm font-semibold text-foreground mb-3">
                         Subject
                       </label>
@@ -257,13 +226,9 @@ const SayHello = (): JSX.Element => {
                         placeholder="Let's work together"
                         disabled={isLoading}
                       />
-                    </motion.div>
+                    </div>
                     
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.8 }}
-                    >
+                    <div>
                       <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-3">
                         Message
                       </label>
@@ -277,92 +242,76 @@ const SayHello = (): JSX.Element => {
                         placeholder="Tell me about your project or what you'd like to discuss..."
                         disabled={isLoading}
                       />
-                    </motion.div>
+                    </div>
                     
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.9 }}
-                      whileHover={{ scale: isLoading ? 1 : 1.02 }}
-                      whileTap={{ scale: isLoading ? 1 : 0.98 }}
+                    <Button
+                      type="submit"
+                      disabled={isLoading || isSuccess}
+                      className={`relative w-full h-14 text-white shadow-xl hover:scale-105 transition-all duration-300 rounded-2xl overflow-hidden group text-lg font-semibold ${
+                        isSuccess 
+                          ? 'bg-gradient-to-r from-green-500 to-emerald-500 hover:shadow-green-500/25' 
+                          : 'gradient-primary hover:shadow-primary/25'
+                      }`}
                     >
-                      <Button
-                        type="submit"
-                        disabled={isLoading || isSuccess}
-                        className={`relative w-full h-14 text-white shadow-xl transition-all duration-300 rounded-2xl overflow-hidden group/btn text-lg font-semibold ${
-                          isSuccess 
-                            ? 'bg-gradient-to-r from-green-500 to-emerald-500 hover:shadow-green-500/25' 
-                            : 'gradient-primary hover:shadow-primary/25'
-                        }`}
-                      >
-                        <span className="relative z-10 flex items-center justify-center">
-                          {isLoading ? (
-                            <>
-                              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
-                              Sending...
-                            </>
-                          ) : isSuccess ? (
-                            <>
-                              <CheckCircle className="w-5 h-5 mr-2" />
-                              Message Sent!
-                            </>
-                          ) : (
-                            <>
-                              <Send className="w-5 h-5 mr-2" />
-                              Send Message
-                            </>
-                          )}
-                        </span>
-                        {!isLoading && !isSuccess && (
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                      <span className="flex items-center justify-center">
+                        {isLoading ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                            Sending...
+                          </>
+                        ) : isSuccess ? (
+                          <>
+                            <CheckCircle className="w-5 h-5 mr-2" />
+                            Message Sent!
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-5 h-5 mr-2" />
+                            Send Message
+                          </>
                         )}
-                      </Button>
-                    </motion.div>
+                      </span>
+                      {!isLoading && !isSuccess && (
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                      )}
+                    </Button>
                   </form>
                 </div>
               </motion.div>
             </div>
 
-            {/* Contact Info - Same as before but keeping it here for completeness */}
+            {/* Optimized Contact Info */}
             <div className="space-y-6 sm:space-y-8">
               {/* Quick Info */}
               <motion.div
-                initial={{ opacity: 0, x: 40, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                className="relative bg-gradient-to-br from-background via-background/90 to-muted/20 rounded-3xl p-6 sm:p-8 border border-border/30 hover:border-primary/40 transition-all duration-500 backdrop-blur-sm overflow-hidden group"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                className="relative bg-gradient-to-br from-background via-background/90 to-muted/20 rounded-3xl p-6 sm:p-8 border border-border/30 hover:border-primary/40 hover:scale-105 transition-all duration-300 backdrop-blur-sm overflow-hidden group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 <div className="relative z-10">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="flex items-center space-x-3 mb-6"
-                  >
+                  <div className="flex items-center space-x-3 mb-6">
                     <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                       <Heart className="w-4 h-4 text-white" />
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                       Let's Connect
                     </h3>
-                  </motion.div>
+                  </div>
                   
                   <div className="space-y-4">
                     {[
                       { icon: MapPin, text: "Sri Lanka", color: "text-green-500" },
                       { icon: Clock, text: "Available for opportunities", color: "text-blue-500" },
                       { icon: Mail, text: "duminduthushan9@gmail.com", color: "text-red-500", href: "mailto:duminduthushan9@gmail.com" }
-                    ].map((item, index) => (
-                      <motion.div
+                    ].map((item) => (
+                      <div
                         key={item.text}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
-                        className="flex items-center space-x-3 group/item"
+                        className="flex items-center space-x-3 group"
                       >
-                        <item.icon className={`w-5 h-5 ${item.color} group-hover/item:scale-110 transition-transform duration-300`} />
+                        <item.icon className={`w-5 h-5 ${item.color} group-hover:scale-110 transition-transform duration-300`} />
                         {item.href ? (
                           <a 
                             href={item.href}
@@ -373,7 +322,7 @@ const SayHello = (): JSX.Element => {
                         ) : (
                           <span className="text-muted-foreground font-medium">{item.text}</span>
                         )}
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -381,53 +330,43 @@ const SayHello = (): JSX.Element => {
 
               {/* Social Links */}
               <motion.div
-                initial={{ opacity: 0, x: 40, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-                className="relative bg-gradient-to-br from-background via-background/90 to-muted/20 rounded-3xl p-6 sm:p-8 border border-border/30 hover:border-primary/40 transition-all duration-500 backdrop-blur-sm overflow-hidden group"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                className="relative bg-gradient-to-br from-background via-background/90 to-muted/20 rounded-3xl p-6 sm:p-8 border border-border/30 hover:border-primary/40 hover:scale-105 transition-all duration-300 backdrop-blur-sm overflow-hidden group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 <div className="relative z-10">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="flex items-center space-x-3 mb-6"
-                  >
+                  <div className="flex items-center space-x-3 mb-6">
                     <div className="w-8 h-8 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
                       <Zap className="w-4 h-4 text-white" />
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                       Follow Me
                     </h3>
-                  </motion.div>
+                  </div>
                   
                   <div className="space-y-3">
-                    {socialLinks.map((link, index) => (
-                      <motion.a
+                    {socialLinks.map((link) => (
+                      <a
                         key={link.name}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.7 + (index * 0.1) }}
-                        whileHover={{ scale: 1.02, x: 4 }}
-                        whileTap={{ scale: 0.98 }}
-                        className={`flex items-center justify-between p-4 rounded-2xl border-2 border-border/30 hover:border-primary/40 transition-all duration-300 group/link bg-background/30 backdrop-blur-sm ${link.color}`}
+                        className={`flex items-center justify-between p-4 rounded-2xl border-2 border-border/30 hover:border-primary/40 hover:scale-105 hover:translate-x-1 transition-all duration-300 group bg-background/30 backdrop-blur-sm ${link.color}`}
                       >
                         <div className="flex items-center space-x-3">
-                          <link.icon className="w-5 h-5 group-hover/link:scale-110 transition-transform duration-300" />
+                          <link.icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                           <div>
-                            <span className="text-foreground group-hover/link:text-primary transition-colors font-semibold">
+                            <span className="text-foreground group-hover:text-primary transition-colors font-semibold">
                               {link.name}
                             </span>
                             <p className="text-xs text-muted-foreground">{link.description}</p>
                           </div>
                         </div>
-                        <div className="w-2 h-2 bg-primary/30 rounded-full group-hover/link:bg-primary group-hover/link:scale-150 transition-all duration-300" />
-                      </motion.a>
+                        <div className="w-2 h-2 bg-primary/30 rounded-full group-hover:bg-primary group-hover:scale-150 transition-all duration-300" />
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -435,55 +374,35 @@ const SayHello = (): JSX.Element => {
 
               {/* Response Time */}
               <motion.div
-                initial={{ opacity: 0, x: 40, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-                className="relative bg-gradient-to-br from-background via-background/90 to-muted/20 rounded-3xl p-6 sm:p-8 border border-border/30 hover:border-primary/40 transition-all duration-500 backdrop-blur-sm overflow-hidden group text-center"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                className="relative bg-gradient-to-br from-background via-background/90 to-muted/20 rounded-3xl p-6 sm:p-8 border border-border/30 hover:border-primary/40 hover:scale-105 transition-all duration-300 backdrop-blur-sm overflow-hidden group text-center"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 <div className="relative z-10">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                    className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4"
-                  >
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Zap className="w-8 h-8 text-white" />
-                  </motion.div>
+                  </div>
                   
-                  <motion.h3 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.9 }}
-                    className="text-xl sm:text-2xl font-bold text-foreground mb-4"
-                  >
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                     Quick Response
-                  </motion.h3>
+                  </h3>
                   
-                  <motion.p 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1 }}
-                    className="text-muted-foreground mb-6 font-medium"
-                  >
+                  <p className="text-muted-foreground mb-6 font-medium">
                     I typically respond within 24 hours
-                  </motion.p>
+                  </p>
                   
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 1.1 }}
-                    className="relative w-full h-3 bg-muted/50 rounded-full overflow-hidden"
-                  >
+                  <div className="relative w-full h-3 bg-muted/50 rounded-full overflow-hidden">
                     <motion.div
                       className="absolute left-0 top-0 h-full bg-gradient-to-r from-primary to-secondary rounded-full"
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
-                      transition={{ duration: 2, delay: 1.2, ease: "easeOut" }}
+                      transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full animate-pulse" />
-                  </motion.div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full animate-pulse-slow" />
+                  </div>
                 </div>
               </motion.div>
             </div>

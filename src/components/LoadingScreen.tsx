@@ -1,348 +1,195 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { Sparkles, Code2, Zap } from 'lucide-react';
+import { Sparkles, Code2, Zap, X } from 'lucide-react';
 
 interface LoadingScreenProps {
   onComplete: () => void;
 }
 
 export function LoadingScreen({ onComplete }: LoadingScreenProps) {
-  const [currentText, setCurrentText] = useState('');
   const [progress, setProgress] = useState(0);
-  const [phase, setPhase] = useState(0); // 0: initial, 1: typing, 2: complete
+  const [phase, setPhase] = useState(0); // 0: loading, 1: complete
+  const [canSkip, setCanSkip] = useState(false);
   
-  const fullText = "Welcome to my digital universe...";
-  const loadingSteps = [
-    "Initializing portfolio...",
+  const loadingMessages = [
+    "Welcome...",
     "Loading projects...",
-    "Preparing experiences...",
-    "Optimizing design...",
-    "Almost ready..."
+    "Almost ready...",
+    "Ready!"
   ];
 
+  const getCurrentMessage = () => {
+    const index = Math.floor(progress / 25);
+    return loadingMessages[Math.min(index, loadingMessages.length - 1)];
+  };
+
   useEffect(() => {
-    // Phase 1: Initial animation and progress
+    // Allow skipping after 1 second
+    const skipTimer = setTimeout(() => setCanSkip(true), 1000);
+    
+    // Faster progress - complete in 3 seconds total
     const progressTimer = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(progressTimer);
           setPhase(1);
+          // Auto-complete after 1 more second
+          setTimeout(() => onComplete(), 1000);
           return 100;
         }
-        return prev + 1;
+        return prev + 2; // Faster increment
       });
-    }, 50); // 5 seconds total
+    }, 60); // 3 seconds total
 
-    return () => clearInterval(progressTimer);
-  }, []);
+    return () => {
+      clearTimeout(skipTimer);
+      clearInterval(progressTimer);
+    };
+  }, [onComplete]);
 
-  useEffect(() => {
-    if (phase === 1) {
-      // Phase 2: Typing animation
-      let currentIndex = 0;
-      const typingTimer = setInterval(() => {
-        if (currentIndex <= fullText.length) {
-          setCurrentText(fullText.slice(0, currentIndex));
-          currentIndex++;
-        } else {
-          clearInterval(typingTimer);
-          setTimeout(() => setPhase(2), 1000);
-        }
-      }, 80); // Slower typing for more time
-
-      return () => clearInterval(typingTimer);
-    }
-  }, [phase]);
-
-  useEffect(() => {
-    if (phase === 2) {
-      // Phase 3: Final animation before completion
-      setTimeout(() => {
-        onComplete();
-      }, 2000); // Extra time to admire the design
-    }
-  }, [phase, onComplete]);
+  const handleSkip = () => {
+    setProgress(100);
+    setPhase(1);
+    setTimeout(() => onComplete(), 300);
+  };
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.1 }}
-      transition={{ duration: 1.2, ease: "easeInOut" }}
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(262 83% 58% / 0.1), hsl(189 94% 57% / 0.1))'
-      }}
+      exit={{ opacity: 0, scale: 1.05 }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background/95 to-background"
     >
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background" />
-      
-      {/* Floating Orbs */}
-      <motion.div 
-        className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-full blur-3xl"
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-tr from-secondary/20 to-accent/10 rounded-full blur-3xl"
-        animate={{ 
-          scale: [1.2, 1, 1.2],
-          opacity: [0.4, 0.7, 0.4]
-        }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
-      <motion.div 
-        className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-accent/15 to-primary/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
-        animate={{ 
-          rotate: 360,
-          scale: [1, 1.1, 1]
-        }}
-        transition={{ 
-          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-          scale: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-        }}
-      />
+      {/* Simplified Background Effects - Only 2 orbs */}
+      <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-primary/15 to-secondary/8 rounded-full blur-2xl animate-pulse-slow opacity-60" />
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-tr from-secondary/15 to-accent/8 rounded-full blur-2xl animate-pulse-slow opacity-60" />
 
-      {/* Floating Particles */}
-      {[...Array(12)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-primary/40 rounded-full"
-          style={{
-            left: `${20 + Math.random() * 60}%`,
-            top: `${20 + Math.random() * 60}%`,
-          }}
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.2, 0.8, 0.2],
-            scale: [1, 1.5, 1]
-          }}
-          transition={{
-            duration: 3 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
+      {/* Skip Button */}
+      <AnimatePresence>
+        {canSkip && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={handleSkip}
+            className="absolute top-8 right-8 p-3 rounded-full bg-background/80 border border-border/30 hover:bg-muted/50 transition-all duration-300 backdrop-blur-sm group z-20"
+          >
+            <X className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* Main Content */}
-      <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
+      <div className="relative z-10 text-center max-w-md mx-auto px-4">
         <AnimatePresence mode="wait">
           {phase === 0 && (
             <motion.div
               key="loading"
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 1.1, opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className="space-y-8"
             >
-              {/* Enhanced Logo Animation */}
-              <div className="relative mb-12">
-                <motion.div 
-                  className="relative w-32 h-32 mx-auto"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                >
+              {/* Simplified Logo */}
+              <div className="relative mb-8">
+                <div className="relative w-24 h-24 mx-auto">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-accent p-1">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                      <motion.div
-                        animate={{ 
-                          scale: [1, 1.1, 1],
-                          rotate: [0, 5, -5, 0]
-                        }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
-                      >
+                      <div className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                         DT
-                      </motion.div>
+                      </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
                 
-                {/* Orbiting Elements */}
-                <motion.div
-                  className="absolute top-1/2 left-1/2 w-48 h-48 transform -translate-x-1/2 -translate-y-1/2"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                >
+                {/* Simple orbiting elements */}
+                <div className="absolute top-1/2 left-1/2 w-32 h-32 transform -translate-x-1/2 -translate-y-1/2 animate-spin-slow">
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
-                    <Code2 className="w-6 h-6 text-primary" />
+                    <Code2 className="w-4 h-4 text-primary" />
                   </div>
                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-                    <Zap className="w-6 h-6 text-secondary" />
+                    <Zap className="w-4 h-4 text-secondary" />
                   </div>
                   <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
-                    <Sparkles className="w-6 h-6 text-accent" />
+                    <Sparkles className="w-4 h-4 text-accent" />
                   </div>
                   <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-                    <div className="w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded-full" />
+                    <div className="w-4 h-4 bg-gradient-to-br from-primary to-secondary rounded-full" />
                   </div>
-                </motion.div>
+                </div>
               </div>
 
-              {/* Enhanced Welcome Text */}
-              <motion.div
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="space-y-4"
-              >
-                <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-6">
-                  Welcome
+              {/* Welcome Message */}
+              <div className="space-y-4">
+                <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                  {getCurrentMessage()}
                 </h1>
-                <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-                  {loadingSteps[Math.floor(progress / 20)] || loadingSteps[4]}
-                </p>
-              </motion.div>
+              </div>
 
-              {/* Enhanced Progress Bar */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                className="relative w-full max-w-md mx-auto"
-              >
-                <div className="h-2 bg-muted/30 rounded-full overflow-hidden backdrop-blur-sm">
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full relative"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
-                  </motion.div>
+              {/* Simplified Progress Bar */}
+              <div className="relative w-full max-w-xs mx-auto">
+                <div className="h-1.5 bg-muted/30 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full transition-all duration-300 ease-out"
+                    style={{ width: `${progress}%` }}
+                  />
                 </div>
-                <div className="mt-3 text-center">
-                  <span className="text-sm font-mono text-primary font-semibold">
+                <div className="mt-2 text-center">
+                  <span className="text-xs text-muted-foreground font-mono">
                     {progress}%
                   </span>
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           )}
 
           {phase === 1 && (
             <motion.div
-              key="typing"
+              key="complete"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 1.1, opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
             >
-              {/* Typing Animation */}
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6 }}
-                className="relative"
-              >
-                <div className="text-3xl md:text-4xl text-primary font-mono flex items-center justify-center min-h-[3rem]">
-                  <span className="relative">
-                    {currentText}
-                    <motion.span
-                      className="inline-block w-1 h-8 bg-primary ml-2"
-                      animate={{ opacity: [1, 0, 1] }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    />
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Enhanced completion indicator */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.5, duration: 0.6, type: "spring" }}
-                className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg"
-              >
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="text-white text-2xl"
-                >
-                  ✓
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          )}
-
-          {phase === 2 && (
-            <motion.div
-              key="complete"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 1.2, opacity: 0 }}
-              transition={{ duration: 1 }}
-              className="space-y-8"
-            >
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 2, -2, 0]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
-              >
-                Ready
-              </motion.div>
+              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                Ready!
+              </div>
               
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="text-xl text-muted-foreground"
-              >
-                Let's explore together...
-              </motion.p>
+              <p className="text-lg text-muted-foreground">
+                Welcome to my portfolio
+              </p>
 
-              {/* Sparkle effects */}
-              {[...Array(8)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-4 h-4"
-                  style={{
-                    left: `${40 + Math.random() * 20}%`,
-                    top: `${40 + Math.random() * 20}%`,
-                  }}
-                  initial={{ scale: 0, rotate: 0 }}
-                  animate={{ 
-                    scale: [0, 1, 0],
-                    rotate: 360,
-                    opacity: [0, 1, 0]
-                  }}
-                  transition={{
-                    duration: 2,
-                    delay: Math.random() * 1,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <Sparkles className="w-full h-full text-accent" />
-                </motion.div>
-              ))}
+              {/* Simple sparkle effect */}
+              <div className="relative">
+                {[...Array(3)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute"
+                    style={{
+                      left: `${30 + i * 20}%`,
+                      top: `${-10 + i * 5}px`,
+                    }}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ 
+                      scale: [0, 1, 0],
+                      opacity: [0, 1, 0],
+                      y: -20
+                    }}
+                    transition={{
+                      duration: 1,
+                      delay: i * 0.2,
+                      ease: "easeOut"
+                    }}
+                  >
+                    <Sparkles className="w-4 h-4 text-accent" />
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-
-      {/* Enhanced Border Glow Effect */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-4 rounded-3xl opacity-30">
-          <motion.div
-            className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary via-secondary to-accent opacity-20 blur-xl"
-            animate={{ 
-              opacity: [0.1, 0.3, 0.1],
-              scale: [1, 1.02, 1]
-            }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
-      </div>
     </motion.div>
   );
 }
-
