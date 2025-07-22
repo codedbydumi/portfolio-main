@@ -39,13 +39,13 @@ const projects = [
     title: 'Luxevista Hotel App',
     description: 'A modern Android app for booking luxury 🏨hotel rooms and services, exploring attractions, and managing reservations with a premium user experience.',
    
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop&crop=edges',
+    image: '/app.png',
     tags: ['Java', 'Android Studio', 'Kotlin', 'Android SDK'],
-    category: 'Web Development',
+    category: 'Mobile App',
     demoUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/codedbydumi/luxevista-hotel-app',
     featured: false,
-    date: '2023'
+    date: '2024'
   },
   {
     id: 5,
