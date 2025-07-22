@@ -21,7 +21,7 @@ const techCategories = [
   {
     title: 'Backend & Database',
     icon: Database,
-    technologies: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'Firebase'],
+    technologies: ['Node.js', 'Python', 'PostgreSQL',  'Firebase'],
     color: 'text-green-500'
   },
   {
@@ -33,19 +33,19 @@ const techCategories = [
   {
     title: 'Analytics & Visualization',
     icon: BarChart3,
-    technologies: ['Matplotlib', 'Seaborn', 'Plotly', 'Tableau', 'Power BI'],
+    technologies: [ 'Exel', 'Plotly', 'Google Sheet', 'Power BI'],
     color: 'text-orange-500'
   },
   {
     title: 'Tools & Platforms',
     icon: Terminal,
-    technologies: ['Git', 'Docker', 'AWS', 'Vercel', 'Jupyter'],
+    technologies: ['Git', 'Docker', 'Linux / Bash', 'Vercel', 'Jupyter'],
     color: 'text-cyan-500'
   },
   {
     title: 'Design & UI/UX',
     icon: Palette,
-    technologies: ['Figma', 'Adobe XD', 'Photoshop', 'Canva', 'Framer'],
+    technologies: ['Figma', 'Adobe XD', 'Photoshop', 'Canva'],
     color: 'text-pink-500'
   }
 ];

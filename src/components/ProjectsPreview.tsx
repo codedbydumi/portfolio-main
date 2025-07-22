@@ -1,38 +1,44 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight, Star, Zap } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Star, Zap, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const featuredProjects = [
   {
     id: 1,
-    title: 'AI-Powered Data Analytics Dashboard',
-    description: 'A comprehensive dashboard for visualizing complex datasets with machine learning insights and real-time data processing.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=edges',
-    tags: ['Python', 'React', 'TensorFlow', 'D3.js'],
-    demoUrl: '#',
-    codeUrl: '#',
+    title: 'SkillSphere - Personal Learning Management Platform',
+    description: 'A comprehensive personal learning management platform with goal tracking, smart notes, blog publishing, and analytics dashboard.',
+    image: 'Sk1 (1).png',
+    tags: ['Next.js 14', 'React 18' ,'Prisma', 'Tailwind CSS', 'PostgreSQL'],
+    isDesktopApp :false,
+    demoUrl: 'https://skillsphere.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/skillsphere',
+    
     featured: true
   },
   {
     id: 2,
-    title: 'Srilankas Guide',
-    description: '🌴 A tourism and educational website about Sri Lanka built with Joomla made 2022, featuring travel guides, historical insights, religious diversity, and more. Hosted via Netlify.',
-    image: '/sl.guide.jpg',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    demoUrl: 'https://slguide.netlify.app/',
-    codeUrl: 'https://github.com/codedbydumi/Srilankas_Guide',
+    title: 'Synex Industries - Salary Management System',
+    description: 'Salary Management System with Tkinter GUI & MySQL — built for Synex Industries., it supports secure multi-user access, advanced salary calculations, tax reporting, profit analysis, and employee data management .',
+    image: '/image.png',
+    isDesktopApp :true,
+    tags: ['python', 'mysql', 'Tkinter', 'Cli'],
+    downloadUrl: 'https://slguide.netlify.app/',
+    codeUrl: 'https://github.com/codedbydumi/synex_salary_management_system',
+    
     featured: true
   },
   {
     id: 3,
-    title: 'Predictive Model for Stock Analysis',
-    description: 'Machine learning model that predicts stock trends using historical data and market indicators.',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop&crop=edges',
-    tags: ['Python', 'Pandas', 'Scikit-learn', 'Flask'],
-    demoUrl: '#',
-    codeUrl: '#',
+    title: '🌐 Hyperlocal Community Platforms',
+    description: 'The Hyperlocal Community Platform is a PHP-based web application built to connect neighborhoods and foster meaningful local interactions.',
+    image: 'hyper.png',
+    tags: ['Backend: PHP', 'Database: MySQL', 'Frontend: HTML5, CSS3, Js', 'Host :VPS'],
+    isDesktopApp :false,
+    demoUrl: 'https://hyperlocal.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/hyperlocal-community-platform',
+    
     featured: false
   }
 ];
@@ -206,7 +212,7 @@ export function ProjectsPreview(): JSX.Element {
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.slice(0, 3).map((tag) => (
+                    {project.tags.slice(0, 4).map((tag) => (
                       <span
                         key={tag}
                         className="px-3 py-1 text-xs bg-gradient-to-r from-muted/60 to-muted/40 text-muted-foreground rounded-xl border border-border/40 hover:bg-gradient-to-r hover:from-primary/15 hover:to-secondary/15 hover:text-primary hover:border-primary/40 hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm"
@@ -218,17 +224,31 @@ export function ProjectsPreview(): JSX.Element {
 
                   {/* Actions */}
                   <div className="flex gap-3">
-                    <a 
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1"
-                    >
-                      <Button size="sm" className="gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 hover:scale-105 transition-all duration-300">
-                        <ExternalLink className="w-3 h-3 mr-2" />
-                        Demo
-                      </Button>
-                    </a>
+                    {project.isDesktopApp ? (
+                      <a 
+                        href={project.downloadUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1"
+                      >
+                        <Button size="sm" className="gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 hover:scale-105 transition-all duration-300">
+                          <Download className="w-3 h-3 mr-2" />
+                          Download
+                        </Button>
+                      </a>
+                    ) : (
+                      <a 
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1"
+                      >
+                        <Button size="sm" className="gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 hover:scale-105 transition-all duration-300">
+                          <ExternalLink className="w-3 h-3 mr-2" />
+                          Demo
+                        </Button>
+                      </a>
+                    )}
                     
                     <a 
                       href={project.codeUrl}

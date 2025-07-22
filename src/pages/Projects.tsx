@@ -4,52 +4,43 @@ import { ExternalLink, Github, Filter, Zap, Calendar, Code2 } from 'lucide-react
 import { Button } from '@/components/ui/button';
 
 const projects = [
-  {
+ {
     id: 1,
-    title: 'AI-Powered Data Analytics Dashboard',
-    description: 'A comprehensive dashboard for visualizing complex datasets with machine learning insights and real-time data processing capabilities.',
-    longDescription: 'Built a full-stack analytics platform that processes large datasets in real-time, applies machine learning algorithms for predictive insights, and presents data through interactive visualizations. Features include automated report generation, anomaly detection, and customizable dashboards.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=edges',
-    tags: ['Python', 'React', 'TensorFlow', 'D3.js', 'PostgreSQL'],
-    category: 'Data Science',
-    demoUrl: '#',
-    codeUrl: '#',
-    featured: true,
-    date: '2024'
+    title: 'SkillSphere - Personal Learning Management Platform',
+    description: 'A comprehensive personal learning management platform with goal tracking, smart notes, blog publishing, and analytics dashboard.',
+    image: '/skills.png',
+    tags: ['Next.js 14', 'React 18' ,'Prisma', 'Tailwind CSS', 'PostgreSQL'],
+    demoUrl: 'https://skillsphere.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/skillsphere',
+    featured: true
   },
   {
     id: 2,
-    title: 'E-commerce Platform',
-    description: 'Modern e-commerce solution with advanced filtering, payment integration, and comprehensive inventory management system.',
-    longDescription: 'Developed a complete e-commerce platform with features including user authentication, product catalog, shopping cart, payment processing, order management, and admin dashboard. Implemented advanced search and filtering capabilities.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&crop=edges',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux'],
-    category: 'Web Development',
-    demoUrl: '#',
-    codeUrl: '#',
-    featured: true,
-    date: '2024'
+    title: 'Synex Industries - Salary Management System',
+    description: 'Salary Management System with Tkinter GUI & MySQL — built for Synex Industries., it supports secure multi-user access, advanced salary calculations, tax reporting, profit analysis, and employee data management — all with a clean, enterprise-ready interface.',
+    image: '/image.png',
+    tags: ['python', 'mysql', 'Tkinter', 'Cli'],
+    demoUrl: 'https://slguide.netlify.app/',
+    codeUrl: 'https://github.com/codedbydumi/synex_salary_management_system',
+    featured: true
   },
   {
     id: 3,
-    title: 'Predictive Model for Stock Analysis',
-    description: 'Machine learning model that predicts stock trends using historical data and market indicators with high accuracy.',
-    longDescription: 'Created a sophisticated stock prediction system using multiple ML algorithms including LSTM networks, Random Forest, and regression models. Integrated real-time data feeds and technical indicators for comprehensive market analysis.',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop&crop=edges',
-    tags: ['Python', 'Pandas', 'Scikit-learn', 'Flask', 'LSTM'],
-    category: 'Data Science',
-    demoUrl: '#',
-    codeUrl: '#',
-    featured: false,
-    date: '2023'
+    title: '🌐 Hyperlocal Community Platforms',
+    description: 'The Hyperlocal Community Platform is a PHP-based web application built to connect neighborhoods and foster meaningful local interactions.',
+    image: 'hyper.png',
+    tags: ['Backend: PHP', 'Database: MySQL', 'Frontend: HTML5, CSS3, Js', 'Host :VPS'],
+    demoUrl: 'https://hyperlocal.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/hyperlocal-community-platform',
+    featured: false
   },
   {
     id: 4,
-    title: 'Task Management Application',
-    description: 'Collaborative task management tool with real-time updates, team collaboration features, and progress tracking.',
-    longDescription: 'Built a comprehensive project management application with features like task assignment, progress tracking, team collaboration, file sharing, and real-time notifications. Includes kanban boards, calendar views, and reporting features.',
+    title: 'Luxevista Hotel App',
+    description: 'A modern Android app for booking luxury 🏨hotel rooms and services, exploring attractions, and managing reservations with a premium user experience.',
+   
     image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop&crop=edges',
-    tags: ['React', 'Firebase', 'Material-UI', 'WebSockets'],
+    tags: ['Java', 'Android Studio', 'Kotlin', 'Android SDK'],
     category: 'Web Development',
     demoUrl: '#',
     codeUrl: '#',
@@ -78,7 +69,7 @@ const projects = [
     category: 'Web Development',
     demoUrl: 'https://slguide.netlify.app/',
     codeUrl: 'https://github.com/codedbydumi/Srilankas_Guide',
-    featured: true,
+    featured: false,
     date: '2022'
   }
 ];
