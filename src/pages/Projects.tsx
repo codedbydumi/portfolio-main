@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Filter, Zap, Calendar, Code2 } from 'lucide-react';
+import { ExternalLink, Github, Filter, Zap, Calendar, Code2 , Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const projects = [
@@ -10,6 +10,7 @@ const projects = [
     description: 'A comprehensive personal learning management platform with goal tracking, smart notes, blog publishing, and analytics dashboard.',
     image: '/skills.png',
     tags: ['Next.js 14', 'React 18' ,'Prisma', 'Tailwind CSS', 'PostgreSQL'],
+    category: 'Full-Stack',
     demoUrl: 'https://skillsphere.duminduthushan.com/',
     codeUrl: 'https://github.com/codedbydumi/skillsphere',
     featured: true
@@ -20,7 +21,9 @@ const projects = [
     description: 'Salary Management System with Tkinter GUI & MySQL — built for Synex Industries., it supports secure multi-user access, advanced salary calculations, tax reporting, profit analysis, and employee data management — all with a clean, enterprise-ready interface.',
     image: '/image.png',
     tags: ['python', 'mysql', 'Tkinter', 'Cli'],
-    demoUrl: 'https://slguide.netlify.app/',
+    isDesktopApp : true,
+    category: 'System Development',
+    downloadUrl: 'https://slguide.netlify.app/',
     codeUrl: 'https://github.com/codedbydumi/synex_salary_management_system',
     featured: true
   },
@@ -29,6 +32,7 @@ const projects = [
     title: '🌐 Hyperlocal Community Platforms',
     description: 'The Hyperlocal Community Platform is a PHP-based web application built to connect neighborhoods and foster meaningful local interactions.',
     image: 'hyper.png',
+    category: 'Full-Stack',
     tags: ['Backend: PHP', 'Database: MySQL', 'Frontend: HTML5, CSS3, Js', 'Host :VPS'],
     demoUrl: 'https://hyperlocal.duminduthushan.com/',
     codeUrl: 'https://github.com/codedbydumi/hyperlocal-community-platform',
@@ -40,55 +44,14 @@ const projects = [
     description: 'A modern Android app for booking luxury 🏨hotel rooms and services, exploring attractions, and managing reservations with a premium user experience.',
     image: '/app.png',
     tags: ['Java', 'Android Studio', 'Kotlin', 'Android SDK'],
-    category: 'Mobile App',
-    demoUrl: '#',
+    category: 'App',
+    isDesktopApp : true,
+    downloadUrl: '#',
     codeUrl: 'https://github.com/codedbydumi/luxevista-hotel-app',
     featured: false,
     date: '2024'
   },
   {
-    id: 5,
-    title: 'Doggy App',
-    description: 'Doggy App is a simple, informative mobile application for dog lovers to explore and learn about dog breeds around the world.',
-    longDescription: 'Performed comprehensive customer segmentation analysis using K-means clustering, RFM analysis, and behavioral segmentation. Created automated reporting system with actionable insights for marketing strategies.',
-    image: '/doggy.png',
-    tags: ['Platform: Appmaker.lk', 'Modern Funtions'],
-    category: 'App Development',
-    demoUrl: 'https://myappmaker.io/Doggy/',
-    codeUrl: 'https://github.com/codedbydumi/Breed_House-app.git',
-    featured: false,
-    date: '2020'
-  },
-  {
-    id: 6,
-    title: 'Srilankas Guide',
-    description: '🌴 A tourism and educational website about Sri Lanka built with Joomla made 2022, featuring travel guides, historical insights, religious diversity, and more. Hosted via Netlify.',
-    image: '/sl.guide.jpg',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    category: 'Web Development',
-    demoUrl: 'https://slguide.netlify.app/',
-    codeUrl: 'https://github.com/codedbydumi/Srilankas_Guide',
-    featured: false,
-    date: '2022'
-  },{
-  id: 7,
-    title: 'Personal Portfolio Website',
-    description: 'A high-performance portfolio website built with React, TypeScript, and Tailwind CSS. Achieved 98/100 Lighthouse performance score through advanced optimization techniques including animation reduction, image optimization, and efficient component architecture.',
-    image: '/portfolio.png',
-    tags: ['React 18', 
-    'TypeScript', 
-    'Tailwind CSS', 
-    'Framer Motion', 
-    'Vite', 
-    'Performance Optimization',
-    'Responsive Design',
-    'SEO'],
-    category: 'Web Development',
-    demoUrl: 'https://duminduthushan.com/',
-    codeUrl: '#',
-    featured: false,
-    date: '2025'
-  },{
   
     id: 8,
     title: 'Pharmacy Management System',
@@ -101,13 +64,32 @@ const projects = [
     'Swagger',
     'Responsive Design',
     'SEO'],
-    category: 'Web Development',
+    category: 'Full-Stack',
     demoUrl: '#',
     codeUrl: 'https://github.com/codedbydumi/Pharmacy-Management-System.git',
     featured: false,
     date: '2025'
-  }
-,{
+  },
+  {
+  id: 7,
+    title: 'Personal Portfolio Website',
+    description: 'A high-performance portfolio website built with React, TypeScript, and Tailwind CSS. Achieved 98/100 Lighthouse performance score through advanced optimization techniques including animation reduction, image optimization, and efficient component architecture.',
+    image: '/portfolio.png',
+    tags: ['React 18', 
+    'TypeScript', 
+    'Tailwind CSS', 
+    'Framer Motion', 
+    'Vite', 
+    'Performance Optimization',
+    'Responsive Design',
+    'SEO'],
+    category: 'Full-Stack',
+    demoUrl: 'https://duminduthushan.com/',
+    codeUrl: '#',
+    featured: false,
+    date: '2025'
+  },
+  {
   
     id: 9,
     title: 'Fitzone Gym',
@@ -117,15 +99,49 @@ const projects = [
     'PHP , Html', 
     'CSS', 
     'JS'],
-    category: 'Web Development',
+    category: 'Frontend',
     demoUrl: 'https://fitzone.duminduthushan.com/',
     codeUrl: 'https://github.com/codedbydumi/Fitzone-gym.git',
     featured: false,
     date: '2024'
-  }
+  },
+
+  {
+    id: 6,
+    title: 'Srilankas Guide',
+    description: '🌴 A tourism and educational website about Sri Lanka built with Joomla made 2022, featuring travel guides, historical insights, religious diversity, and more. Hosted via Netlify.',
+    image: '/sl.guide.jpg',
+    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    category: 'Frontend',
+    demoUrl: 'https://slguide.netlify.app/',
+    codeUrl: 'https://github.com/codedbydumi/Srilankas_Guide',
+    featured: false,
+    date: '2022'
+  },
+    {
+    id: 5,
+    title: 'Doggy App',
+    description: 'Doggy App is a simple, informative mobile application for dog lovers to explore and learn about dog breeds around the world.',
+    longDescription: 'Performed comprehensive customer segmentation analysis using K-means clustering, RFM analysis, and behavioral segmentation. Created automated reporting system with actionable insights for marketing strategies.',
+    image: '/doggy.png',
+    tags: ['Platform: Appmaker.lk', 'Modern Funtions'],
+    category: 'App',
+    demoUrl: 'https://myappmaker.io/Doggy/',
+    codeUrl: 'https://github.com/codedbydumi/Breed_House-app.git',
+    featured: false,
+    date: '2020'
+  },
+
 ];
 
-const categories = ['All', 'Data Science', 'Web Development' , 'App Development'];
+const categories = [
+  'All',
+  'Full-Stack',
+  'System Development',
+  'Frontend',
+  'App'
+  
+];
 
 export default function Projects(): JSX.Element {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -271,23 +287,43 @@ export default function Projects(): JSX.Element {
 
                     {/* Actions */}
                     <div className="flex gap-3">
-                      <a 
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1"
-                      >
-                        <Button 
-                          size="sm" 
-                          className="relative gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 hover:scale-105 transition-all duration-300 overflow-hidden group"
+                      {project.isDesktopApp && project.downloadUrl ? (
+                        <a 
+                          href={project.downloadUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1"
                         >
-                          <span className="flex items-center justify-center">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
-                          </span>
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                        </Button>
-                      </a>
+                          <Button 
+                            size="sm" 
+                            className="relative gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 hover:scale-105 transition-all duration-300 overflow-hidden group"
+                          >
+                            <span className="flex items-center justify-center">
+                              <Download className="w-4 h-4 mr-2" />
+                              Download
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                          </Button>
+                        </a>
+                      ) : (
+                        <a 
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1"
+                        >
+                          <Button 
+                            size="sm" 
+                            className="relative gradient-primary text-white w-full rounded-xl shadow-lg hover:shadow-primary/25 hover:scale-105 transition-all duration-300 overflow-hidden group"
+                          >
+                            <span className="flex items-center justify-center">
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Live Demo
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                          </Button>
+                        </a>
+                      )}
                       
                       <a 
                         href={project.codeUrl}
