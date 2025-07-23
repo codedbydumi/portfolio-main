@@ -38,7 +38,6 @@ const projects = [
     id: 4,
     title: 'Luxevista Hotel App',
     description: 'A modern Android app for booking luxury 🏨hotel rooms and services, exploring attractions, and managing reservations with a premium user experience.',
-   
     image: '/app.png',
     tags: ['Java', 'Android Studio', 'Kotlin', 'Android SDK'],
     category: 'Mobile App',
@@ -49,16 +48,16 @@ const projects = [
   },
   {
     id: 5,
-    title: 'Customer Segmentation Analysis',
-    description: 'Advanced customer segmentation using clustering algorithms to identify distinct customer groups and behaviors.',
+    title: 'Doggy App',
+    description: 'Doggy App is a simple, informative mobile application for dog lovers to explore and learn about dog breeds around the world.',
     longDescription: 'Performed comprehensive customer segmentation analysis using K-means clustering, RFM analysis, and behavioral segmentation. Created automated reporting system with actionable insights for marketing strategies.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&crop=edges',
-    tags: ['Python', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
-    category: 'Data Science',
-    demoUrl: '#',
-    codeUrl: '#',
+    image: '/doggy.png',
+    tags: ['Platform: Appmaker.lk', 'Modern Funtions'],
+    category: 'App',
+    demoUrl: 'https://myappmaker.io/Doggy/',
+    codeUrl: 'https://github.com/codedbydumi/Breed_House-app.git',
     featured: false,
-    date: '2023'
+    date: '2020'
   },
   {
     id: 6,
