@@ -5,13 +5,14 @@ import { Button } from '@/components/ui/button';
 import profileImage from '../assets/IMG_4086.jpg';
 
 const skills = [
-  { name: 'Data Analysis', level: 90 },
-  { name: 'Machine Learning', level: 85 },
-  { name: 'React/Next.js', level: 88 },
-  { name: 'Python', level: 92 },
-  { name: 'TypeScript', level: 82 },
-  { name: 'SQL/NoSQL', level: 80 },
-  { name: 'Data Visualization', level: 87 },
+   { name: 'Python', level: 92 },
+  { name: 'Data Analysis', level: 76 },
+  { name: 'Machine Learning', level: 80 },
+  { name: 'React/Next.js', level: 85 },
+ 
+  { name: 'TypeScript', level: 70 },
+  { name: 'SQL/NoSQL', level: 90 },
+  { name: 'Data Visualization', level: 85 },
   { name: 'Cloud Platforms', level: 75 }
 ];
 
@@ -96,7 +97,7 @@ export default function About(): JSX.Element {
                   </div>
                 ))}
               </div>
-
+<br/>
               <a 
                 href="https://drive.google.com/drive/folders/1xXyUafbzqO70ETmZRjbvPFs7tKXMkAB8?usp=sharing" 
                 target="_blank" 
