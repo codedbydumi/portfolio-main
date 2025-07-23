@@ -53,7 +53,7 @@ const projects = [
     longDescription: 'Performed comprehensive customer segmentation analysis using K-means clustering, RFM analysis, and behavioral segmentation. Created automated reporting system with actionable insights for marketing strategies.',
     image: '/doggy.png',
     tags: ['Platform: Appmaker.lk', 'Modern Funtions'],
-    category: 'App',
+    category: 'App Development',
     demoUrl: 'https://myappmaker.io/Doggy/',
     codeUrl: 'https://github.com/codedbydumi/Breed_House-app.git',
     featured: false,
@@ -70,10 +70,62 @@ const projects = [
     codeUrl: 'https://github.com/codedbydumi/Srilankas_Guide',
     featured: false,
     date: '2022'
+  },{
+  id: 7,
+    title: 'Personal Portfolio Website',
+    description: 'A high-performance portfolio website built with React, TypeScript, and Tailwind CSS. Achieved 98/100 Lighthouse performance score through advanced optimization techniques including animation reduction, image optimization, and efficient component architecture.',
+    image: '/portfolio.png',
+    tags: ['React 18', 
+    'TypeScript', 
+    'Tailwind CSS', 
+    'Framer Motion', 
+    'Vite', 
+    'Performance Optimization',
+    'Responsive Design',
+    'SEO'],
+    category: 'Web Development',
+    demoUrl: 'https://duminduthushan.com/',
+    codeUrl: '#',
+    featured: false,
+    date: '2025'
+  },{
+  
+    id: 8,
+    title: 'Pharmacy Management System',
+    description: 'Pharmacy Management System – A web-based dashboard for managing drug inventory, orders, suppliers, and sales analytics. Features include low stock alerts, recent activity logs, and secure login. Built with ASP.NET Core, MSSQL, and a modern responsive frontend.',
+    image: '/Dashboard.png',
+    tags: [ 
+    'React, Vite', 
+    'Tailwind CSS', 
+    'ASP.NET Core Web API', 
+    'Swagger',
+    'Responsive Design',
+    'SEO'],
+    category: 'Web Development',
+    demoUrl: '#',
+    codeUrl: 'https://github.com/codedbydumi/Pharmacy-Management-System.git',
+    featured: false,
+    date: '2025'
+  }
+,{
+  
+    id: 9,
+    title: 'Fitzone Gym',
+    description: 'A modern web platform for gyms and fitness centers. Manage workouts, display fitness content, and engage members with a responsive, user-friendly design.',
+    image: '/fitzone.png',
+    tags: [ 
+    'PHP , Html', 
+    'CSS', 
+    'JS'],
+    category: 'Web Development',
+    demoUrl: 'https://fitzone.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/Fitzone-gym.git',
+    featured: false,
+    date: '2024'
   }
 ];
 
-const categories = ['All', 'Data Science', 'Web Development'];
+const categories = ['All', 'Data Science', 'Web Development' , 'App Development'];
 
 export default function Projects(): JSX.Element {
   const [selectedCategory, setSelectedCategory] = useState('All');
