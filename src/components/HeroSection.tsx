@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, Download, ArrowDown, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import profileImage from '../assets/profile-hero.jpg';
@@ -93,7 +94,7 @@ export function HeroSection(): JSX.Element {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               </Button>
-              
+              <Link to="/say-hello">
               <Button
                 variant="outline"
                 size="lg"
@@ -101,7 +102,7 @@ export function HeroSection(): JSX.Element {
               >
                 Say Hello
                 <Mail className="w-5 h-5 ml-2" />
-              </Button>
+              </Button></Link>
 {/*               
               <Button
               
