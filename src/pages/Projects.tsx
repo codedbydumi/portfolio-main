@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+
 import { ExternalLink, Github, Filter, Zap, Calendar, Code2 , Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -13,7 +14,8 @@ const projects = [
     category: 'Full-Stack',
     demoUrl: 'https://skillsphere.duminduthushan.com/',
     codeUrl: 'https://github.com/codedbydumi/skillsphere',
-    featured: true
+    featured: true,
+    date: 2025
   },
   {
     id: 2,
@@ -25,7 +27,8 @@ const projects = [
     category: 'System Development',
     downloadUrl: 'https://github.com/codedbydumi/synex_salary_management_system/releases/tag/v1.0.0',
     codeUrl: 'https://github.com/codedbydumi/synex_salary_management_system',
-    featured: true
+    featured: true,
+    date: 2025
   },
   {
     id: 3,
@@ -36,7 +39,8 @@ const projects = [
     tags: ['Backend: PHP', 'Database: MySQL', 'Frontend: HTML5, CSS3, Js', 'Host :VPS'],
     demoUrl: 'https://hyperlocal.duminduthushan.com/',
     codeUrl: 'https://github.com/codedbydumi/hyperlocal-community-platform',
-    featured: false
+    featured: false,
+    date: 2024
   },
   {
     id: 4,
@@ -65,7 +69,7 @@ const projects = [
     'Responsive Design',
     'SEO'],
     category: 'Full-Stack',
-    demoUrl: '#',
+    demoUrl: '/under-maintenance',
     codeUrl: 'https://github.com/codedbydumi/Pharmacy-Management-System.git',
     featured: false,
     date: '2025'
@@ -111,7 +115,7 @@ const projects = [
     title: 'Srilankas Guide',
     description: '🌴 A tourism and educational website about Sri Lanka built with Joomla made 2022, featuring travel guides, historical insights, religious diversity, and more. Hosted via Netlify.',
     image: '/sl.guide.jpg',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    tags: ['Joomla', 'php', 'MySql', 'Js'],
     category: 'Frontend',
     demoUrl: 'https://slguide.netlify.app/',
     codeUrl: 'https://github.com/codedbydumi/Srilankas_Guide',

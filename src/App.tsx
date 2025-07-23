@@ -16,6 +16,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import SayHello from "./pages/SayHello";
 import NotFound from "./pages/NotFound";
+import UnderMaintenance from './pages/UnderMaintenance';
 
 
 const queryClient = new QueryClient();
@@ -54,6 +55,7 @@ const App = () => {
                       <Route path="/blog/:slug" element={<BlogPost />} />
                       <Route path="/say-hello" element={<SayHello />} />
                       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                      <Route path="/under-maintenance" element={<UnderMaintenance />} />
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </main>
