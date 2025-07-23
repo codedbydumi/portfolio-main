@@ -24,7 +24,7 @@ const featuredProjects = [
     image: '/image.png',
     isDesktopApp :true,
     tags: ['python', 'mysql', 'Tkinter', 'Cli'],
-    downloadUrl: 'https://slguide.netlify.app/',
+    downloadUrl: 'https://github.com/codedbydumi/synex_salary_management_system/releases/tag/v1.0.0',
     codeUrl: 'https://github.com/codedbydumi/synex_salary_management_system',
     
     featured: true

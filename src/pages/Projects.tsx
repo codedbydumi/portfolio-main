@@ -23,7 +23,7 @@ const projects = [
     tags: ['python', 'mysql', 'Tkinter', 'Cli'],
     isDesktopApp : true,
     category: 'System Development',
-    downloadUrl: 'https://slguide.netlify.app/',
+    downloadUrl: 'https://github.com/codedbydumi/synex_salary_management_system/releases/tag/v1.0.0',
     codeUrl: 'https://github.com/codedbydumi/synex_salary_management_system',
     featured: true
   },
@@ -46,7 +46,7 @@ const projects = [
     tags: ['Java', 'Android Studio', 'Kotlin', 'Android SDK'],
     category: 'App',
     isDesktopApp : true,
-    downloadUrl: '#',
+    downloadUrl: 'https://github.com/codedbydumi/luxevista-hotel-app/releases/tag/V.0.1',
     codeUrl: 'https://github.com/codedbydumi/luxevista-hotel-app',
     featured: false,
     date: '2024'
