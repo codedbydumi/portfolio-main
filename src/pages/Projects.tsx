@@ -58,21 +58,46 @@ const projects = [
   },
   
   {
-    id: 4,
-    title: '🌱 FoodChain Tracker',
-    description: 'Blockchain-powered food supply chain transparency platform. Track products from farm to fork with immutable records, multi-role dashboards, and real-time analytics.',
-    image: 'foodchain.png',
+    id: 5,
+    title: '🦠 COVID-19 Global Analysis Dashboard',
+    description: 'An interactive data storytelling project analyzing global COVID-19 trends through comprehensive data analysis and visualization, combining Pythons analytical power with Tableaus interactive capabilities.',
+    image: 'ta_dashboard.png',
     category: 'Full-Stack',
-    tags: ['Python', 'Flask' ,'PyData ecosystem libraries' ,'sqLite'],
-    demoUrl: 'https://foodchain.duminduthushan.com/',
-    codeUrl: 'https://github.com/codedbydumi/Blockchain-Food-Supply.git',
+    tags: ['Pandas · NumPy · Matplotlib ·seaborn', 'Tableau'],
+    demoUrl: 'https://public.tableau.com/app/profile/dumindu.thushan/viz/COVID-19GlobalAnalysisDashboard_17552040049020/Dashboard1',
+    codeUrl: 'https://github.com/codedbydumi/covid-data-visualization-tableau.git',
     featured: false,
     date: 2025
   },
 
+   {
+    id: 6,
+    title: '🫀 Heart Disease Risk Assessment System',
+    description: 'A professional machine learning system for cardiovascular risk assessment using advanced ensemble methods and explainable AI.',
+    image: 'heart.png',
+    category: 'Full-Stack',
+    tags: ['Python ,FastAPI' , 'Streamlit' , 'scikit-learn', 'Docker'],
+    demoUrl: 'https://heartdisease.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/heart-disease.git',
+    featured: false,
+    date: 2025
+  },
 
   {
-    id: 5,
+    id: 6,
+    title: '🫀 Heart Disease Risk Assessment System',
+    description: 'A professional machine learning system for cardiovascular risk assessment using advanced ensemble methods and explainable AI.',
+    image: 'heart.png',
+    category: 'Full-Stack',
+    tags: ['Python ,FastAPI' , 'Streamlit' , 'scikit-learn', 'Docker'],
+    demoUrl: 'https://heartdisease.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/heart-disease.git',
+    featured: false,
+    date: 2025
+  },
+
+  {
+    id: 7,
     title: 'Luxevista Hotel App',
     description: 'A modern Android app for booking luxury 🏨hotel rooms and services, exploring attractions, and managing reservations with a premium user experience.',
     image: '/app.png',
@@ -104,7 +129,7 @@ const projects = [
     date: '2025'
   },
   {
-  id: 7,
+  id: 9,
     title: 'Personal Portfolio Website',
     description: 'A high-performance portfolio website built with React, TypeScript, and Tailwind CSS. Achieved 98/100 Lighthouse performance score through advanced optimization techniques including animation reduction, image optimization, and efficient component architecture.',
     image: '/portfolio.png',
@@ -124,7 +149,7 @@ const projects = [
   },
   {
   
-    id: 9,
+    id: 10,
     title: 'Fitzone Gym',
     description: 'A modern web platform for gyms and fitness centers. Manage workouts, display fitness content, and engage members with a responsive, user-friendly design.',
     image: '/fitzone.png',
@@ -140,7 +165,7 @@ const projects = [
   },
 
   {
-    id: 6,
+    id: 11,
     title: 'Srilankas Guide',
     description: '🌴 A tourism and educational website about Sri Lanka built with Joomla made 2022, featuring travel guides, historical insights, religious diversity, and more. Hosted via Netlify.',
     image: '/sl.guide.jpg',
@@ -152,7 +177,7 @@ const projects = [
     date: '2022'
   },
     {
-    id: 5,
+    id: 12,
     title: 'Doggy App',
     description: 'Doggy App is a simple, informative mobile application for dog lovers to explore and learn about dog breeds around the world.',
     longDescription: 'Performed comprehensive customer segmentation analysis using K-means clustering, RFM analysis, and behavioral segmentation. Created automated reporting system with actionable insights for marketing strategies.',
