@@ -5,7 +5,7 @@
 <div align="center">
   
   [![Website](https://img.shields.io/website?url=https%3A%2F%2Fduminduthushan.com&style=for-the-badge&label=Portfolio&logo=google-chrome&logoColor=white)](https://duminduthushan.com)
-  [![GitHub last commit](https://img.shields.io/github/last-commit/codedbydumi/portfolio?style=for-the-badge&logo=github&logoColor=white)](https://github.com/codedbydumi/portfolio)
+  [![GitHub last commit](https://img.shields.io/github/last-commit/codedbydumi/portfolio?style=for-the-badge&logo=github&logoColor=white)](https://github.com/codedbydumi/portfolio-main)
   [![Lighthouse Performance](https://img.shields.io/badge/Lighthouse-95%2B-brightgreen?style=for-the-badge&logo=lighthouse&logoColor=white)](https://duminduthushan.com)
   [![Deploy Status](https://img.shields.io/badge/Deploy-Success-brightgreen?style=for-the-badge&logo=vercel&logoColor=white)](https://duminduthushan.com)
   
