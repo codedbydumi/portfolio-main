@@ -30,6 +30,7 @@ const projects = [
     featured: true,
     date: 2025
   },
+
   {
     id: 3,
     title: '🌐 Hyperlocal Community Platforms',
@@ -42,8 +43,36 @@ const projects = [
     featured: false,
     date: 2024
   },
+
   {
     id: 4,
+    title: '🌱 FoodChain Tracker',
+    description: 'Blockchain-powered food supply chain transparency platform. Track products from farm to fork with immutable records, multi-role dashboards, and real-time analytics.',
+    image: 'foodchain.png',
+    category: 'Full-Stack',
+    tags: ['Python', 'Flask' ,'PyData ecosystem libraries' ,'sqLite'],
+    demoUrl: 'https://foodchain.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/Blockchain-Food-Supply.git',
+    featured: false,
+    date: 2025
+  },
+  
+  {
+    id: 4,
+    title: '🌱 FoodChain Tracker',
+    description: 'Blockchain-powered food supply chain transparency platform. Track products from farm to fork with immutable records, multi-role dashboards, and real-time analytics.',
+    image: 'foodchain.png',
+    category: 'Full-Stack',
+    tags: ['Python', 'Flask' ,'PyData ecosystem libraries' ,'sqLite'],
+    demoUrl: 'https://foodchain.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/Blockchain-Food-Supply.git',
+    featured: false,
+    date: 2025
+  },
+
+
+  {
+    id: 5,
     title: 'Luxevista Hotel App',
     description: 'A modern Android app for booking luxury 🏨hotel rooms and services, exploring attractions, and managing reservations with a premium user experience.',
     image: '/app.png',
