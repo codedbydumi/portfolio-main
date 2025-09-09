@@ -5,8 +5,32 @@ import { ExternalLink, Github, Filter, Zap, Calendar, Code2 , Download } from 'l
 import { Button } from '@/components/ui/button';
 
 const projects = [
- {
+   {
+    id: 6,
+    title: '🏥 Diabetic Retinopathy Detection System',
+    description: 'An AI-powered multi-modal system for diabetic retinopathy risk assessment combining clinical data analysis with retinal image processing',
+    image: 'dmm.png',
+    category: 'AI & Data Science',
+    tags: [' TensorFlow' , 'scikit-learn' , 'React' , ' Python ,FastAPI'],
+    demoUrl: 'https://dr.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/diabetic-retinopathy-ai.git',
+    featured: true,
+    date: 2025
+  },
+  {
     id: 1,
+    title: '🫀 Heart Disease Risk Assessment System',
+    description: 'A professional machine learning system for cardiovascular risk assessment using advanced ensemble methods and explainable AI.',
+    image: 'heart.png',
+    category: 'AI & Data Science',
+    tags: ['Python ,FastAPI' , 'Streamlit' , 'scikit-learn', 'Docker'],
+    demoUrl: 'https://heartdisease.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/heart-disease.git',
+    featured: true,
+    date: 2025
+  },
+ {
+    id: 5,
     title: 'SkillSphere - Personal Learning Management Platform',
     description: 'A comprehensive personal learning management platform with goal tracking, smart notes, blog publishing, and analytics dashboard.',
     image: '/skills.png',
@@ -14,7 +38,20 @@ const projects = [
     category: 'Full-Stack',
     demoUrl: 'https://skillsphere.duminduthushan.com/',
     codeUrl: 'https://github.com/codedbydumi/skillsphere',
-    featured: true,
+    featured: false,
+    date: 2025
+  },
+
+    {
+    id: 4,
+    title: '🌱 FoodChain Tracker',
+    description: 'Blockchain-powered food supply chain transparency platform. Track products from farm to fork with immutable records, multi-role dashboards, and real-time analytics.',
+    image: 'foodchain.png',
+    category: 'Full-Stack',
+    tags: ['Python', 'Flask' ,'PyData ecosystem libraries' ,'sqLite'],
+    demoUrl: 'https://foodchain.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/Blockchain-Food-Supply.git',
+    featured: false,
     date: 2025
   },
   {
@@ -27,108 +64,22 @@ const projects = [
     category: 'System Development',
     downloadUrl: 'https://github.com/codedbydumi/synex_salary_management_system/releases/tag/v1.0.0',
     codeUrl: 'https://github.com/codedbydumi/synex_salary_management_system',
-    featured: true,
-    date: 2025
-  },
-
-  {
-    id: 3,
-    title: '🌐 Hyperlocal Community Platforms',
-    description: 'The Hyperlocal Community Platform is a PHP-based web application built to connect neighborhoods and foster meaningful local interactions.',
-    image: 'hyper.png',
-    category: 'Full-Stack',
-    tags: ['Backend: PHP', 'Database: MySQL', 'Frontend: HTML5, CSS3, Js', 'Host :VPS'],
-    demoUrl: 'https://hyperlocal.duminduthushan.com/',
-    codeUrl: 'https://github.com/codedbydumi/hyperlocal-community-platform',
-    featured: false,
-    date: 2024
-  },
-
-  {
-    id: 4,
-    title: '🌱 FoodChain Tracker',
-    description: 'Blockchain-powered food supply chain transparency platform. Track products from farm to fork with immutable records, multi-role dashboards, and real-time analytics.',
-    image: 'foodchain.png',
-    category: 'Full-Stack',
-    tags: ['Python', 'Flask' ,'PyData ecosystem libraries' ,'sqLite'],
-    demoUrl: 'https://foodchain.duminduthushan.com/',
-    codeUrl: 'https://github.com/codedbydumi/Blockchain-Food-Supply.git',
     featured: false,
     date: 2025
   },
-  
   {
     id: 5,
     title: '🦠 COVID-19 Global Analysis Dashboard',
     description: 'An interactive data storytelling project analyzing global COVID-19 trends through comprehensive data analysis and visualization, combining Pythons analytical power with Tableaus interactive capabilities.',
     image: 'ta_dashboard.png',
-    category: 'Full-Stack',
+    category: 'AI & Data Science',
     tags: ['Pandas · NumPy · Matplotlib ·seaborn', 'Tableau'],
     demoUrl: 'https://public.tableau.com/app/profile/dumindu.thushan/viz/COVID-19GlobalAnalysisDashboard_17552040049020/Dashboard1',
     codeUrl: 'https://github.com/codedbydumi/covid-data-visualization-tableau.git',
     featured: false,
     date: 2025
   },
-
    {
-    id: 6,
-    title: '🫀 Heart Disease Risk Assessment System',
-    description: 'A professional machine learning system for cardiovascular risk assessment using advanced ensemble methods and explainable AI.',
-    image: 'heart.png',
-    category: 'Full-Stack',
-    tags: ['Python ,FastAPI' , 'Streamlit' , 'scikit-learn', 'Docker'],
-    demoUrl: 'https://heartdisease.duminduthushan.com/',
-    codeUrl: 'https://github.com/codedbydumi/heart-disease.git',
-    featured: false,
-    date: 2025
-  },
-
-  {
-    id: 6,
-    title: '🏥 Diabetic Retinopathy Detection System',
-    description: 'An AI-powered multi-modal system for diabetic retinopathy risk assessment combining clinical data analysis with retinal image processing',
-    image: 'dmm.png',
-    category: 'Full-Stack',
-    tags: [' TensorFlow' , 'scikit-learn' , 'React' , ' Python ,FastAPI'],
-    demoUrl: 'https://dr.duminduthushan.com/',
-    codeUrl: 'https://github.com/codedbydumi/diabetic-retinopathy-ai.git',
-    featured: false,
-    date: 2025
-  },
-
-  {
-    id: 7,
-    title: 'Luxevista Hotel App',
-    description: 'A modern Android app for booking luxury 🏨hotel rooms and services, exploring attractions, and managing reservations with a premium user experience.',
-    image: '/app.png',
-    tags: ['Java', 'Android Studio', 'Kotlin', 'Android SDK'],
-    category: 'App',
-    isDesktopApp : true,
-    downloadUrl: 'https://github.com/codedbydumi/luxevista-hotel-app/releases/tag/V.0.1',
-    codeUrl: 'https://github.com/codedbydumi/luxevista-hotel-app',
-    featured: false,
-    date: '2024'
-  },
-  {
-  
-    id: 8,
-    title: 'Pharmacy Management System',
-    description: 'Pharmacy Management System – A web-based dashboard for managing drug inventory, orders, suppliers, and sales analytics. Features include low stock alerts, recent activity logs, and secure login. Built with ASP.NET Core, MSSQL, and a modern responsive frontend.',
-    image: '/Dashboard.png',
-    tags: [ 
-    'React, Vite', 
-    'Tailwind CSS', 
-    'ASP.NET Core Web API', 
-    'Swagger',
-    'Responsive Design',
-    'SEO'],
-    category: 'Full-Stack',
-    demoUrl: '/under-maintenance',
-    codeUrl: 'https://github.com/codedbydumi/Pharmacy-Management-System.git',
-    featured: false,
-    date: '2025'
-  },
-  {
   id: 9,
     title: 'Personal Portfolio Website',
     description: 'A high-performance portfolio website built with React, TypeScript, and Tailwind CSS. Achieved 98/100 Lighthouse performance score through advanced optimization techniques including animation reduction, image optimization, and efficient component architecture.',
@@ -148,6 +99,42 @@ const projects = [
     date: '2025'
   },
   {
+    id: 3,
+    title: '🌐 Hyperlocal Community Platforms',
+    description: 'The Hyperlocal Community Platform is a PHP-based web application built to connect neighborhoods and foster meaningful local interactions.',
+    image: 'hyper.png',
+    category: 'Full-Stack',
+    tags: ['Backend: PHP', 'Database: MySQL', 'Frontend: HTML5, CSS3, Js', 'Host :VPS'],
+    demoUrl: 'https://hyperlocal.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/hyperlocal-community-platform',
+    featured: false,
+    date: 2024
+  },
+
+
+  
+
+
+
+
+  {
+    id: 7,
+    title: 'Luxevista Hotel App',
+    description: 'A modern Android app for booking luxury 🏨hotel rooms and services, exploring attractions, and managing reservations with a premium user experience.',
+    image: '/app.png',
+    tags: ['Java', 'Android Studio', 'Kotlin', 'Android SDK'],
+    category: 'App',
+    isDesktopApp : true,
+    downloadUrl: 'https://github.com/codedbydumi/luxevista-hotel-app/releases/tag/V.0.1',
+    codeUrl: 'https://github.com/codedbydumi/luxevista-hotel-app',
+    featured: false,
+    date: '2024'
+  },
+  
+  // 
+  
+ 
+  {
   
     id: 10,
     title: 'Fitzone Gym',
@@ -157,11 +144,11 @@ const projects = [
     'PHP , Html', 
     'CSS', 
     'JS'],
-    category: 'Frontend',
+    category: 'Full-Stack',
     demoUrl: 'https://fitzone.duminduthushan.com/',
     codeUrl: 'https://github.com/codedbydumi/Fitzone-gym.git',
     featured: false,
-    date: '2024'
+    date: '2023'
   },
 
   {
@@ -170,7 +157,7 @@ const projects = [
     description: '🌴 A tourism and educational website about Sri Lanka built with Joomla made 2022, featuring travel guides, historical insights, religious diversity, and more. Hosted via Netlify.',
     image: '/sl.guide.jpg',
     tags: ['Joomla', 'php', 'MySql', 'Js'],
-    category: 'Frontend',
+    category: 'Full-Stack',
     demoUrl: 'https://slguide.netlify.app/',
     codeUrl: 'https://github.com/codedbydumi/Srilankas_Guide',
     featured: false,
@@ -194,9 +181,10 @@ const projects = [
 
 const categories = [
   'All',
+  'AI & Data Science',
   'Full-Stack',
   'System Development',
-  'Frontend',
+  
   'App'
   
 ];
