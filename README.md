@@ -2,12 +2,12 @@
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fduminduthushan.com&style=for-the-badge)](https://duminduthushan.com)
 [![GitHub last commit](https://img.shields.io/github/last-commit/duminduthushan/portfolio?style=for-the-badge)](https://github.com/duminduthushan/portfolio)
-[![GitHub](https://img.shields.io/github/license/duminduthushan/portfolio?style=for-the-badge)](LICENSE.md)
+[![GitHub](https://img.shields.io/github/license/duminduthushan/portfolio?style=for-the-badge)](LICENSE)
 [![Lighthouse Performance](https://img.shields.io/badge/Lighthouse-95%2B-brightgreen?style=for-the-badge)](https://duminduthushan.com)
 
 > **Modern, high-performance portfolio showcasing data science expertise and full-stack development skills.**
 
-![Portfolio Preview](https://via.placeholder.com/800x400/3b82f6/ffffff?text=Portfolio+Preview)
+
 
 ---
 
@@ -241,3 +241,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Built with ❤️ by [Dumindu Thushan](https://duminduthushan.com)**
 
 </div>
+
+
