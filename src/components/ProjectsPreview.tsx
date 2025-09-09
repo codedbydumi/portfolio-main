@@ -5,7 +5,35 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const featuredProjects = [
+
+    {
+    id: 6,
+    title: '🏥 Diabetic Retinopathy Detection System',
+    description: 'An AI-powered multi-modal system for diabetic retinopathy risk assessment combining clinical data analysis with retinal image processing',
+    image: 'full.png',
+    tags: [' TensorFlow' , 'scikit-learn' , 'React' , ' Python ,FastAPI'],
+    demoUrl: 'https://dr.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/diabetic-retinopathy-ai.git',
+   
+
+  },
+  
+
+
   {
+    id: 2,
+    title: 'Synex Industries - Salary Management System',
+    description: 'Salary Management System with Tkinter GUI & MySQL — built for Synex Industries., it supports secure multi-user access, advanced salary calculations, tax reporting, profit analysis, and employee data management',
+    image: '/image.png',
+    isDesktopApp :true,
+    tags: ['python', 'mysql', 'Tkinter', 'Cli'],
+    downloadUrl: 'https://github.com/codedbydumi/synex_salary_management_system/releases/tag/v1.0.0',
+    codeUrl: 'https://github.com/codedbydumi/synex_salary_management_system',
+    
+    featured: true
+  },
+
+    {
     id: 1,
     title: 'SkillSphere - Personal Learning Management Platform',
     description: 'A comprehensive personal learning management platform with goal tracking, smart notes, blog publishing, and analytics dashboard.',
@@ -17,30 +45,20 @@ const featuredProjects = [
     
     featured: true
   },
-  {
-    id: 2,
-    title: 'Synex Industries - Salary Management System',
-    description: 'Salary Management System with Tkinter GUI & MySQL — built for Synex Industries., it supports secure multi-user access, advanced salary calculations, tax reporting, profit analysis, and employee data management .',
-    image: '/image.png',
-    isDesktopApp :true,
-    tags: ['python', 'mysql', 'Tkinter', 'Cli'],
-    downloadUrl: 'https://github.com/codedbydumi/synex_salary_management_system/releases/tag/v1.0.0',
-    codeUrl: 'https://github.com/codedbydumi/synex_salary_management_system',
+ 
+  
+  // {
+  //   id: 3,
+  //   title: '🌐 Hyperlocal Community Platforms',
+  //   description: 'The Hyperlocal Community Platform is a PHP-based web application built to connect neighborhoods and foster meaningful local interactions.',
+  //   image: 'hyper.png',
+  //   tags: ['Backend: PHP', 'Database: MySQL', 'Frontend: HTML5, CSS3, Js', 'Host :VPS'],
+  //   isDesktopApp :false,
+  //   demoUrl: 'https://hyperlocal.duminduthushan.com/',
+  //   codeUrl: 'https://github.com/codedbydumi/hyperlocal-community-platform',
     
-    featured: true
-  },
-  {
-    id: 3,
-    title: '🌐 Hyperlocal Community Platforms',
-    description: 'The Hyperlocal Community Platform is a PHP-based web application built to connect neighborhoods and foster meaningful local interactions.',
-    image: 'hyper.png',
-    tags: ['Backend: PHP', 'Database: MySQL', 'Frontend: HTML5, CSS3, Js', 'Host :VPS'],
-    isDesktopApp :false,
-    demoUrl: 'https://hyperlocal.duminduthushan.com/',
-    codeUrl: 'https://github.com/codedbydumi/hyperlocal-community-platform',
-    
-    featured: false
-  }
+  //   featured: false
+  // }
 ];
 
 export function ProjectsPreview(): JSX.Element {
