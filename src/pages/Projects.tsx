@@ -85,13 +85,13 @@ const projects = [
 
   {
     id: 6,
-    title: '🫀 Heart Disease Risk Assessment System',
-    description: 'A professional machine learning system for cardiovascular risk assessment using advanced ensemble methods and explainable AI.',
-    image: 'heart.png',
+    title: '🏥 Diabetic Retinopathy Detection System',
+    description: 'An AI-powered multi-modal system for diabetic retinopathy risk assessment combining clinical data analysis with retinal image processing',
+    image: 'dmm.png',
     category: 'Full-Stack',
-    tags: ['Python ,FastAPI' , 'Streamlit' , 'scikit-learn', 'Docker'],
-    demoUrl: 'https://heartdisease.duminduthushan.com/',
-    codeUrl: 'https://github.com/codedbydumi/heart-disease.git',
+    tags: [' TensorFlow' , 'scikit-learn' , 'React' , ' Python ,FastAPI'],
+    demoUrl: 'https://dr.duminduthushan.com/',
+    codeUrl: 'https://github.com/codedbydumi/diabetic-retinopathy-ai.git',
     featured: false,
     date: 2025
   },
