@@ -5,7 +5,7 @@
 <div align="center">
   
   [![Website](https://img.shields.io/website?url=https%3A%2F%2Fduminduthushan.com&style=for-the-badge&label=Portfolio&logo=google-chrome&logoColor=white)](https://duminduthushan.com)
-  [![GitHub last commit](https://img.shields.io/github/last-commit/codedbydumi/portfolio?style=for-the-badge&logo=github&logoColor=white)](https://github.com/codedbydumi/portfolio)
+  [![GitHub last commit](https://img.shields.io/github/last-commit/codedbydumi/portfolio?style=for-the-badge&logo=github&logoColor=white)](https://github.com/codedbydumi/portfolio-main)
   [![Lighthouse Performance](https://img.shields.io/badge/Lighthouse-95%2B-brightgreen?style=for-the-badge&logo=lighthouse&logoColor=white)](https://duminduthushan.com)
   [![Deploy Status](https://img.shields.io/badge/Deploy-Success-brightgreen?style=for-the-badge&logo=vercel&logoColor=white)](https://duminduthushan.com)
   
@@ -97,29 +97,15 @@ portfolio/
 └── 🎨 tailwind.config  # Tailwind config
 ```
 
-## 🎨 Design System
+## 🌐 Browser Support
 
 <div align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <img src="https://via.placeholder.com/100/3B82F6/ffffff?text=Primary" width="100" height="100" style="border-radius: 10px;"><br>
-        <b>Primary</b><br>#3B82F6
-      </td>
-      <td align="center">
-        <img src="https://via.placeholder.com/100/8B5CF6/ffffff?text=Secondary" width="100" height="100" style="border-radius: 10px;"><br>
-        <b>Secondary</b><br>#8B5CF6
-      </td>
-      <td align="center">
-        <img src="https://via.placeholder.com/100/06B6D4/ffffff?text=Accent" width="100" height="100" style="border-radius: 10px;"><br>
-        <b>Accent</b><br>#06B6D4
-      </td>
-      <td align="center">
-        <img src="https://via.placeholder.com/100/0F172A/ffffff?text=Dark" width="100" height="100" style="border-radius: 10px;"><br>
-        <b>Dark</b><br>#0F172A
-      </td>
-    </tr>
-  </table>
+  
+  ![Chrome](https://img.shields.io/badge/Chrome-Latest-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)
+  ![Firefox](https://img.shields.io/badge/Firefox-Latest-FF7139?style=for-the-badge&logo=firefox&logoColor=white)
+  ![Safari](https://img.shields.io/badge/Safari-Latest-006CFF?style=for-the-badge&logo=safari&logoColor=white)
+  ![Edge](https://img.shields.io/badge/Edge-Latest-0078D7?style=for-the-badge&logo=microsoft-edge&logoColor=white)
+  
 </div>
 
 ## ⚡ Optimization Features
@@ -180,6 +166,14 @@ portfolio/
       </td>
     </tr>
   </table>
+</div>
+
+## 🔐 Security Features
+
+<div align="center">
+  
+  ✅ **HTTPS Enforced** • ✅ **CSP Headers** • ✅ **XSS Protection** • ✅ **CORS Configured** • ✅ **Rate Limiting**
+  
 </div>
 
 ## 🤝 Contributing
