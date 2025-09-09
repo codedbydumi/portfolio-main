@@ -7,7 +7,7 @@
 
 > **Modern, high-performance portfolio showcasing data science expertise and full-stack development skills.**
 
-![Portfolio Preview](https://via.placeholder.com/800x400/3b82f6/ffffff?text=Portfolio+Preview)
+
 
 ---
 
@@ -241,4 +241,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Built with ❤️ by [Dumindu Thushan](https://duminduthushan.com)**
 
 </div>
+
 
